@@ -1,0 +1,3 @@
+[submodule "sbc-sdk"]
+	path = sbc-sdk
+	url = https://github.com/EPS-Works/sbc-sdk.git

@@ -4,6 +4,12 @@ This repository contains the Sphinx project for generating the documentation of 
 
 ## Setup
 
+Clone the repo along with submodules
+
+```bash
+git clone --recurse-submodules https://github.com/eps-works/sbc-docs.git
+```
+
 To avoid conflicts with Python versions and dependencies, create and activate a virtual environment
 
 ```bash
@@ -23,6 +29,11 @@ pip install -r requirements.txt
 
 Generate the documentation in the required format
 
+> [!WARNING]
+> Docstrings used by autocode are sourced from the sbc-sdk folder, which is a **submodule**. Update submodules regularly to ensure that the latest code and documentation are available, specially before a new build.
+>
+> `git submodule update --init --recursive`
+
 ```bash
 make html
 
@@ -32,8 +43,11 @@ make epub      # Generates an EPUB document
 
 After building, open `build/html/index.html` in a browser to view the documentation.
 
-### Contributing
+## Contributing
 
 - Create a feature branch.
 - Make changes and ensure the documentation builds successfully.
 - Open a pull request.
+
+> [!CAUTION]
+> DO NOT EDIT **submodules** directly! Any changes made inside submodules may be overwritten when updated.

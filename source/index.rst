@@ -15,3 +15,10 @@ documentation for details.
    :maxdepth: 2
    :caption: Contents:
 
+Contents
+--------
+
+.. toctree::
+
+   dio
+   led
