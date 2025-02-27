@@ -1,0 +1,21 @@
+[project]
+name = "sbc-docs"
+description = "Documentation for the SBC firmware and SDK"
+version = "0.1.0"
+keywords = ["micropython", "sbc", "ardusimple", "sdk", "firmware"]
+readme = "README.md"
+license = {file = "LICENSE"}
+authors = [
+  {name = "Yidan Guo", email = "yguo@eps-works.com"},
+  {name = "Marc Vilella", email = "mvilella@eps-works.com"},
+]
+
+[project.urls]
+Repository = "https://github.com/eps-works/sbc-docs"
+Issues = "https://github.com/eps-works/sbc-docs/issues"
+
+[tool.pylint]
+ignore = ["__pycache__", ".venv"]
+
+[tool.black]
+line-length = 100
