@@ -35,10 +35,13 @@ Generate the documentation in the required format
 > `git submodule update --init --recursive`
 
 ```bash
+# In macOS/Linux
 make html
-
 make latexpdf  # Generates a PDF document
 make epub      # Generates an EPUB document
+
+# In Windows
+sphinx-build -b html source build
 ```
 
 After building, open `build/html/index.html` in a browser to view the documentation.
