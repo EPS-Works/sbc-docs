@@ -1,6 +1,6 @@
 # SBC Hardware Overview
 
-> **Note:** Have you read our [basic user guide](https://www.ardusimple.com/simplertk2b-sbc-hookup-guide/{:target="_blank"})? It will help you understand this page faster.
+> **Note:** Have you read our <a href="https://www.ardusimple.com/simplertk2b-sbc-hookup-guide/" target="_blank">basic user guide</a>? It will help you understand this page faster.
 
 This section describes the different hardware components that you can find on the SBC.
 Don't panic, with our API and our application examples you will be able to easily access all of them.
