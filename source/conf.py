@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join("..", "sbc-sdk", "src")))
-sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "mocks")))
+sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "__mocks__")))
 
 autodoc_preserve_defaults = True
 autodoc_mock_imports = ["utime"]
