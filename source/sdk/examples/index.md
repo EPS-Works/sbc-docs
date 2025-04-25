@@ -2,7 +2,7 @@
 
 This page contains example scripts that demonstrate how to use the SDK to build real-world applications by combining different components. These examples go beyond basic class usage and showcase more complete integrations.
 
-> For usage examples of individual classes, see their respective pages in the [API Reference](reference.md).
+> For usage examples of individual classes, see their respective pages in the [API Reference](../reference/index.md).
 
 ## Micropython Basics
 

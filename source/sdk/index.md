@@ -23,9 +23,10 @@ LedGreen.blink(times=4, period=100)
 
 If you’re ready to get hands-on with the SDK, follow the [API Reference](reference/index.md).
 
-If you’re looking for real-world usage examples and code snippets, see the [Code Examples](examples.md).
+If you’re looking for real-world usage examples and code snippets, see the [Code Examples](examples/index.md).
 
 ```{toctree}
 :hidden:
 
 reference/index.md
+examples/index.md
