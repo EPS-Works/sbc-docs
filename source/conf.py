@@ -36,6 +36,8 @@ extensions = [
   "sphinx_autodoc_typehints",
 ]
 
+myst_enable_extensions = ["html_image", "colon_fence", "deflist"]
+
 add_module_names = False
 
 # Type hints
