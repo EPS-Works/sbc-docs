@@ -8,6 +8,8 @@ Clone the repo along with submodules
 
 ```bash
 git clone --recurse-submodules https://github.com/eps-works/sbc-docs.git
+cd sbc-docs
+git submodule update --init --recursive
 ```
 
 To avoid conflicts with Python versions and dependencies, create and activate a virtual environment
@@ -32,7 +34,7 @@ Generate the documentation in the required format
 > [!WARNING]
 > Docstrings used by autocode are sourced from the sbc-sdk folder, which is a **submodule**. Update submodules regularly to ensure that the latest code and documentation are available, specially before a new build.
 >
-> `git submodule update --init --recursive`
+> `git submodule update --remote`
 
 ```bash
 # In macOS/Linux
