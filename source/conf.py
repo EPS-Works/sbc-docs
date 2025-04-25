@@ -40,6 +40,14 @@ myst_enable_extensions = ["html_image", "colon_fence", "deflist"]
 
 add_module_names = False
 
+def skip_module_docstring(app, what, name, obj, options, lines):
+    if what == "module":
+        lines.clear()  # removes the docstring contents
+
+def setup(app):
+    app.connect("autodoc-process-docstring", skip_module_docstring)
+
+
 # Type hints
 always_use_bars_union = True
 typehints_fully_qualified = False
