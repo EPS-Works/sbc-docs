@@ -15,3 +15,9 @@ When the board powers up or resets, it runs two files automatically if they exis
 `main.py`: Executed after boot.py. This is where your application logic goes.
 
 The SDK is fully available in both files and can be used right away.
+
+## Real-world examples
+
+[Asynchronous GNSS Message Handler](async_gnss_stream.md) - Set up a handler to process NMEA GGA messages from a GNSS module.
+
+[Asynchronous RTK Correction Bridge Using NTRIP and GNSS](ntrip_forward.md) - Set up an RTK correction bridge using a remote NTRIP caster to enhance GNSS positioning.
