@@ -48,12 +48,3 @@ This section helps you connect third-party devices to the SBC:
 
 ## Need Help?
 If you have questions or suggestions, feel free to **[Contact Us](contact)**.
-
-```{toctree}
-:maxdepth: 2
-:hidden:
-
-home.md
-dio
-led
-sdk/index.md
