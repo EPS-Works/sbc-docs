@@ -24,14 +24,8 @@ Discover how to upload and launch your own application on the SBC.
 ### [MicroPython IDEs for SBC](ides/ides.md)
 Although you can use any MicroPython IDE, we provide some recommended options with tutorials for a better experience.
 
-## API Reference Guide
-If you're already familiar with the SBC hardware, jump directly to our API reference:
-
-### [SBC Classes](modules)
-SBC-specific classes simplify your programming. This section is your go-to programming reference.
-
-### [Examples](basic_examples/examples_basic)
-A collection of basic examples: from blinking an LED to reading a digital input. Combine these examples to build advanced applications.
+## SDK Developer Guide
+If you're already familiar with the SBC hardware, jump directly to our [SDK Developer Guide](sdk/index.md)
 
 ## SBC Firmware
 In this section, you’ll find:
@@ -56,3 +50,4 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 home.md
 dio
 led
+sdk/index.md

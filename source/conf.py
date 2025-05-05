@@ -14,7 +14,7 @@ import os
 import sys
 
 sys.path.insert(0, os.path.abspath(os.path.join("..", "sbc-sdk", "src")))
-sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "mocks")))
+sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "__mocks__")))
 
 autodoc_preserve_defaults = True
 autodoc_mock_imports = ["utime"]
@@ -36,7 +36,17 @@ extensions = [
   "sphinx_autodoc_typehints",
 ]
 
+myst_enable_extensions = ["html_image", "colon_fence", "deflist"]
+
 add_module_names = False
+
+def skip_module_docstring(app, what, name, obj, options, lines):
+    if what == "module":
+        lines.clear()  # removes the docstring contents
+
+def setup(app):
+    app.connect("autodoc-process-docstring", skip_module_docstring)
+
 
 # Type hints
 always_use_bars_union = True
