@@ -47,7 +47,6 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 :maxdepth: 2
 :hidden:
 
-home.md
-dio
-led
+
 sdk/index.md
+hw_overview/hardware_overview.md

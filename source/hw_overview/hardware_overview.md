@@ -9,8 +9,19 @@ Don't panic, with our API and our application examples you will be able to easil
 Here are some key hardware components on the SBC:
 
 - [Power](hw_power.md)
-- [Pinout](hw_pinout.md)
-- [Antennas](hw_antennas.md)
-- [LED](hw_led.md)
-- [Sensors](hw_sensors.md)
+- [SBC Pinout, Cables and Interfaces](hw_pinout.md)
+- [SBC RF Antennas](hw_antennas.rst)
+- [LEDs](hw_led.md)
+- [Sensors](hw_sensors.rst)
 - [Memory](hw_memory.md)
+
+```{toctree}
+:maxdepth: 2
+:hidden:
+
+hw_power.md
+hw_pinout.md
+hw_antennas.rst
+hw_led.md
+hw_sensors.rst
+hw_memory.md

@@ -71,9 +71,12 @@ For a description and examples of the methods to read these signals, please go t
 
 ## Timepulse
 
-**GPS1** Timepulse signal can be used via Digital output pin **DOUT1**.  
-In order to use it, the following code must be added:
+**GPS1** Timepulse signal can be used via a specitif pin in the STM32.  
+You can use it with the following code:
 
 ```python
-import machine
-ret = machine.Pin("DOUT1", machine.Pin.IN)
+
+from sbc import GNSS1
+
+GNSS1.timepulse.high()
+GNSS.timepulse.low()
