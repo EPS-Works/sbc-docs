@@ -1,5 +1,6 @@
-# Power
 
+# Power
+=======
 There are two ways to power the SBC:
 
 * [USB C connector](#usb-c-connector)
