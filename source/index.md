@@ -10,7 +10,7 @@ If this is the first time using the SBC, we suggest you check out these sections
 
 ### Hardware Overview
 
-Find a detailed description of how to power and communicate with your device in the [Hardware Overview](hw_overview/hardware_overview.md). It includes descriptions of all components and peripherals for your applications.
+Find a detailed description of how to power and communicate with your device in the [Hardware Overview](hardware/hardware.md). It includes descriptions of all components and peripherals for your applications.
 
 ### Mechanical Integration
 
@@ -55,5 +55,5 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 :maxdepth: 2
 :hidden:
 
-hw_overview/hardware_overview.md
+hardware/hardware.md
 sdk/index.md

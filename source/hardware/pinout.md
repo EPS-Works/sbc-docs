@@ -1,15 +1,15 @@
-# SBC Pinout, Cables and Interfaces
+# Pinout, Cables and Interfaces
 
 The SBC has the following interfaces:
 
-* `Analog inputs`
-* `Digital inputs`
-* `Digital outputs (including PWM)`
-* `Timepulse`
-* `USB`
-* `2 x RS232`
-* `Ethernet`
-* `CAN Bus`
+- `Analog inputs`
+- `Digital inputs`
+- `Digital outputs (including PWM)`
+- `Timepulse`
+- `USB`
+- `2 x RS232`
+- `Ethernet`
+- `CAN Bus`
 
 The picture below shows the generic pinout of the SBC connectors.  
 Notice that each connector has a unique shape so it is physically impossible to connect the cables in the wrong place.
@@ -37,25 +37,27 @@ In addition to these dedicated pins, you can also monitor the SBC power voltage 
 The resolution of the analog reading is 12-bits.
 
 > **Important**
+>
 > - Analog input voltage is between 0V and +22V
 > - Analog input ground is connected to SBC IO GND, which is different from SBC GND. Both SBC IO GND and SBC GND can be connected together if needed.
 
-For a description and examples of the methods to read these signals, please go to the [SBC Classes - AIN documentation](#ain).
+For a description and examples of the methods to read these signals, please go to the [AnalogIn documentation](../sdk/reference/ain.md).
 
 ## Digital inputs
 
 ![Digital Inputs](img/hw_di.png)
 
-Pins which digital status (ON/OFF) can be read by the SBC.  
+Pins with digital status (ON/OFF) can be read by the SBC.  
 The SBC supports two digital input pins: **DIN1**, **DIN2**.
 
 > **Important**
+>
 > - Digital input voltage is between 0V and +30V
 > - Voltage level logic:
 >   ![Logic Level](img/logic_level.png)
 > - Digital input ground is connected to SBC IO GND, which is different from SBC GND. Both SBC IO GND and SBC GND can be connected together if needed.
 
-For a description and examples of the methods to read these signals, please go to the [SBC Classes - DIO documentation](#dio).
+For a description and examples of the methods to read these signals, please go to the [DigitalIO documentation](../sdk/reference/dio.md).
 
 ## Digital outputs (including PWM)
 
@@ -67,16 +69,15 @@ Each of these pins can be configured as a standard digital output (0/1) or as a 
 > **Note**
 > We have a specific section where you can find details and schematics of devices that you can connect to the SBC digital outputs, such as: [DC motors](#motors_dc), [Servo motors](#motors_srv), [Stepper motors](#motors_step) and [Relays](#relays).
 
-For a description and examples of the methods to read these signals, please go to the [SBC Classes - DIO documentation](#dio).
+For a description and examples of the methods to set these signals, please go to the [DigitalIO documentation](../sdk/reference/dio.md).
 
 ## Timepulse
 
-**GPS1** Timepulse signal can be used via a specitif pin in the STM32.  
-You can use it with the following code:
+**GPS1** timepulse signal can be used via a specific pin in the STM32. You can use it with the following code:
 
 ```python
-
 from sbc import GNSS1
 
 GNSS1.timepulse.high()
 GNSS.timepulse.low()
+```

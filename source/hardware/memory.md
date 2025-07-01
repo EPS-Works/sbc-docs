@@ -1,5 +1,4 @@
-Memory
-==========
+# Memory
 
 You can find two different memories in the SBC:
 

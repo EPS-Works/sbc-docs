@@ -1,11 +1,7 @@
-# How to power your SBC
 
-There are two ways to power the SBC:
+# Power
 
-* [USB C connector](#usb-c-connector)
-* [5-24V DC Molex microfit connector](#5-24v-dc-molex-microfit-connector)
-
----
+There are two ways to power the SBC, via the [USB C connector](#usb-c-connector) or via the [5-24V DC Molex microfit connector](#v-dc-molex-microfit-connector).
 
 ## USB C connector
 
@@ -17,18 +13,16 @@ The USB C interface is capable of powering the SBC with all its accessories (4G 
 
 > **Note:** The USB C connector can be used to power the SBC with any commercial USB power bank. This is an easy way to make your SBC tolerant to power interruptions.
 
-### Power consumption in different configurations:
+### Power consumption in different configurations
 
-* Minimum power (microprocessor only, no USB hub and no GPS/GNSS receivers): 0.48W (40mA @ 12V, measured at 25ºC)
-* 1 GPS/GNSS receiver: 1.56W (130mA @ 12V, measured at 25ºC)
-* 2 GPS/GNSS receivers: 1.98W (165mA @ 12V, measured at 25ºC)
-* 3 GPS/GNSS receivers: 2.4W (200mA @ 12V, measured at 25ºC)
-* 3 GPS/GNSS receiver + 4G NTRIP client + XLR radio: 3.9W (325mA @ 12V, measured at 25ºC)
+- Minimum power (microprocessor only, no USB hub and no GPS/GNSS receivers): 0.48W (40mA @ 12V, measured at 25ºC)
+- 1 GPS/GNSS receiver: 1.56W (130mA @ 12V, measured at 25ºC)
+- 2 GPS/GNSS receivers: 1.98W (165mA @ 12V, measured at 25ºC)
+- 3 GPS/GNSS receivers: 2.4W (200mA @ 12V, measured at 25ºC)
+- 3 GPS/GNSS receiver + 4G NTRIP client + XLR radio: 3.9W (325mA @ 12V, measured at 25ºC)
 
 > **Important:**  
-> We do not recommend using the USB C interface to power the SBC for applications involving vibrations (heavy machinery, drones, ...) since this connector may become loose. We suggest using the heavy-duty microfit connector alternative (see [5-24V DC Molex microfit connector](#5-24v-dc-molex-microfit-connector)).
-
----
+> We do not recommend using the USB C interface to power the SBC for applications involving vibrations (heavy machinery, drones, ...) since this connector may become loose. We suggest using the heavy-duty microfit connector alternative (see [5-24V DC Molex microfit connector](#v-dc-molex-microfit-connector)).
 
 ## 5-24V DC Molex microfit connector
 
