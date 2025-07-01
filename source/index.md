@@ -16,9 +16,15 @@ Find a detailed description of how to power and communicate with your device in 
 
 Refer to the [Mechanical Integration](mech/mech.md) section for SBC mechanical specs like weight, dimensions, and 2D/3D models to help with integration. It also includes enclosure options available in our store.
 
-### Firmware Update
+### Firmware
 
-Our engineers continuously improve the SBC firmware to deliver the latest features. Learn how to update your firmware in the [Firmware Update](fw_update/fw_update.md).
+Our engineers continuously improve the SBC firmware to deliver the latest features. Learn how to update your firmware in the [Firmware](firmware/firmware.md) section.
+
+In this section, you’ll find:
+
+- [Download Firmware](firmware/update.md) – Get the latest firmware version.
+- [Firmware Changelog](firmware/update.md) – Track new features and improvements in each firmware update.
+- [Hardware Changelog](firmware/update.md) – Track new features and improvements in SBC hardware versions.
 
 ### Load Your Application
 
@@ -31,14 +37,6 @@ We provide some recommended options and tutorials for a better experience in the
 ### SDK Developer Guide
 
 If you're already familiar with the SBC hardware, jump directly to our [SDK Developer Guide](sdk/index.md).
-
-## SBC Firmware
-
-In this section, you’ll find:
-
-- [Download Firmware](fw_update/fw_update) – Get the latest firmware version.
-- [Firmware Changelog](fw_update/fw_update) – Track new features and improvements in each firmware update.
-- [Hardware Changelog](fw_update/fw_update) – Track new features and improvements in SBC hardware versions.
 
 ## How to Connect...
 
@@ -56,4 +54,5 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 :hidden:
 
 hardware/hardware.md
+firmware/firmware.md
 sdk/index.md

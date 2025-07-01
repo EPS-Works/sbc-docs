@@ -1,35 +1,40 @@
-# SBC firmware update
+# Firmware
 
-The SBC firmware is developed by ArduSimple and contains the low level functionalities to let you focus on the application high level programming in microPython.  
-We recommend to always use the latest version of the SBC firmware since it contains new features and bug fixes.  
+The SBC firmware is developed by ArduSimple and contains the low level functionalities to let you focus on the application high level programming in MicroPython.
+
+We recommend to always use the latest version of the firmware since it contains new features and bug fixes.
+
+:::{tip}
+You can find your current firmware and hardware version by typing in the terminal
+
+```python
+from sbc import __platform__, __firmware__, __version__, __revision__
+
+print(__platform__) # simpleRTK2B-SBC-R04
+print(__firmware__) # 3.4.0; MicroPython v1.24.1-dirty on 2025-04-30
+print(__revision__) # R04 (only in SBC)
+print(__version__) # 0.1.0
+:::
+
+For instructions on updating your firmware, see the [Firmware Update](update.md) page.
+
 If you have any suggestions related to the firmware, please [contact us](../contact.md).
 
-> **Note:**  
-> You can find your SBC current firmware and hardware version by typing in the terminal:
-> 
-> ```python
->from sbc import __platform__, __firmware__, __version__, __sdk__, __revision__
+## Firmware Update
 
->print(__revision__) # R04 (only in SBC)
->print(__platform__) # simpleRTK2B-SBC-R04
->print(__firmware__) # 3.4.0; MicroPython v1.24.1-dirty on 2025-04-30
->print(__version__) # 0.1.0
-> # Output: 'simpleRTK2B-SBC-FW1.07-R03'
-> ```
-> In this example, firmware version is FW1.07 and hardware revision is R03.
+Keeping your firmware up to date ensures access to the latest features, bug fixes, and performance improvements. This guide covers three ways to update your firmware, depending on your hardware setup and access to the SBC.
 
-To update your SBC firmware, you will need:
+You will need:
 
-- SBC and USB C cable  
-- Latest SBC firmware (download below)  
-- STM32 Cube Programmer ([download here](https://www.st.com/en/development-tools/stm32cubeprog.html#overview&secondary=st-get-software))
+- The SBC and a USB-C cable  
+- The latest firmware files (available below)  
+- [STM32 Cube Programmer](https://www.st.com/en/development-tools/stm32cubeprog.html#overview&secondary=st-get-software)
 
-> ⚠️ **Warning:**  
-> Before updating the SBC firmware, make sure you backup the content of the SBC internal memory.
+:::{warning}
+Before proceeding: Backup any important data stored on the SBC's internal memory.
+:::
 
----
-
-## Method 1: Using SBC button
+### Method 1: Using SBC button
 
 1. Press and keep pressed the SBC button  
 2. Connect the USB cable to the SBC and to your computer  
@@ -48,9 +53,7 @@ To update your SBC firmware, you will need:
 15. Click **Download**  
 16. Done! Your firmware is updated ✅
 
----
-
-## Method 2: No access to SBC button (e.g. inside enclosure)
+### Method 2: Without access to SBC button (e.g. inside enclosure)
 
 1. Connect USB cable  
 2. Open a MicroPython terminal (**do NOT put this code in `main.py`!**)
@@ -71,18 +74,19 @@ To update your SBC firmware, you will need:
 10. Open `firmware.hex`, click **Download**  
 11. Done! ✅
 
----
+### Method 3: Programmatically (e.g. FOTA)
 
-## Method 3: Programmatically (e.g. FOTA)
+:::{warning}
+Make sure the microSD card is **NOT** plugged in.
+:::
 
-> ⚠️ **Warning:**  
-> Make sure the microSD card is **NOT** plugged in.
-
-> 💡 **Note:**  
-> This works only if `firmware_mboot.hex` is already installed.
+:::{tip}
+This works only if `firmware_mboot.hex` is already installed.
+:::
 
 1. Copy `firmware.dfu.gz` to the SBC flash memory  
 2. Run:
+
     ```python
     import sbc
     sbc.mboot.fw_update("firmware.dfu.gz")
@@ -90,9 +94,8 @@ To update your SBC firmware, you will need:
     # hdr b'DfuSe\x01'
     # Fw update from firmware.dfu.gz . It will take about 30 seconds
     ```
-3. Wait ~30 seconds, SBC will reboot automatically ✅
 
----
+3. Wait ~30 seconds, SBC will reboot automatically ✅
 
 ## Download Firmware
 
@@ -108,26 +111,28 @@ To update your SBC firmware, you will need:
 - [FW1.02-20220204](releases/FW1.02.zip)  
 - [FW1.01-20210401](releases/FW1.01.zip)
 
----
-
 ## Firmware Changelog
 
 ### 2023-03-23 - FW1.07
+
 **Fixes:**
 
 - Increased PointPerfect maximum buffer size
 
 ### 2022-07-09 - FW1.05
+
 **New features:**
 
 - FTPlib implemented
 
 ### 2022-06-28 - FW1.04
+
 **Fixes:**
 
 - MahonyAHRS numerical issue solved
 
 ### 2022-06-09 - FW1.03
+
 **New features:**
 
 - Added MQTT Client  
@@ -138,6 +143,7 @@ To update your SBC firmware, you will need:
 - Documentation updates (schematic, loading procedure, method examples)
 
 ### 2022-02-04 - FW1.02
+
 **New features:**
 
 - Added uasyncio with Semaphores & Queues  
@@ -157,9 +163,8 @@ To update your SBC firmware, you will need:
 
 - First official firmware release
 
----
-
 ## Hardware Changelog
 
 ### R03
+
 - First official hardware version
