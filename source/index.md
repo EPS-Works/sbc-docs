@@ -5,29 +5,35 @@ This is the documentation for **ArduSimple SBC**, a customizable dual-band GPS/G
 It’s based on **u-blox ZED-F9** module and allows you to build any application using its centimeter-level accuracy.
 
 ## User Guide
-If this is the first time using the SBC, we suggest you check out these sections:
 
-### [SBC Hardware Overview](hw_overview/hardware_overview.md)
-Find a detailed description of how to power and communicate with your device.  
-Includes descriptions of all components and peripherals for your applications.
+If this is the first time using the SBC, we suggest you check out these sections.
 
-### [Mechanical Integration](mech/mech.md)
-Find SBC mechanical specs (weight, dimensions, 2D/3D models) to help with integration.  
-Also includes enclosure options available in our store.
+### Hardware Overview
 
-### [SBC Firmware Update](fw_update/fw_update.md)
-Our engineers continuously improve the SBC firmware. Learn how to update your firmware to use the latest features.
+Find a detailed description of how to power and communicate with your device in the [Hardware Overview](hw_overview/hardware_overview.md). It includes descriptions of all components and peripherals for your applications.
 
-### [Load Your Application](sw_update/sw_update.md)
-Discover how to upload and launch your own application on the SBC.
+### Mechanical Integration
 
-### [MicroPython IDEs for SBC](ides/ides.md)
-Although you can use any MicroPython IDE, we provide some recommended options with tutorials for a better experience.
+Refer to the [Mechanical Integration](mech/mech.md) section for SBC mechanical specs like weight, dimensions, and 2D/3D models to help with integration. It also includes enclosure options available in our store.
 
-## SDK Developer Guide
-If you're already familiar with the SBC hardware, jump directly to our [SDK Developer Guide](sdk/index.md)
+### Firmware Update
+
+Our engineers continuously improve the SBC firmware to deliver the latest features. Learn how to update your firmware in the [Firmware Update](fw_update/fw_update.md).
+
+### Load Your Application
+
+Discover how to upload and launch your own application by following the steps in the [Load Your Application](sw_update/sw_update.md) section.
+
+### MicroPython IDEs
+
+We provide some recommended options and tutorials for a better experience in the [MicroPython IDEs](ides/ides.md) section, although any MicroPython IDE can be used.
+
+### SDK Developer Guide
+
+If you're already familiar with the SBC hardware, jump directly to our [SDK Developer Guide](sdk/index.md).
 
 ## SBC Firmware
+
 In this section, you’ll find:
 
 - [Download Firmware](fw_update/fw_update) – Get the latest firmware version.
@@ -35,18 +41,19 @@ In this section, you’ll find:
 - [Hardware Changelog](fw_update/fw_update) – Track new features and improvements in SBC hardware versions.
 
 ## How to Connect...
+
 This section helps you connect third-party devices to the SBC:
 
 - [Relays](how_to_connect/relays) – Use the SBC to switch high-power devices.
 - [Motors](how_to_connect/motors) – Easily control servo, stepper, and DC motors.
 
 ## Need Help?
+
 If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 
 ```{toctree}
 :maxdepth: 2
 :hidden:
 
-
-sdk/index.md
 hw_overview/hardware_overview.md
+sdk/index.md
