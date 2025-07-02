@@ -39,11 +39,13 @@ Generate the documentation in the required format
 ```bash
 # In macOS/Linux
 make html
+make live      # Launches a live server with hot reloading
 make latexpdf  # Generates a PDF document
 make epub      # Generates an EPUB document
 
 # In Windows
 sphinx-build -b html source build
+sphinx-autobuild -b html source build --port 8000 --open-browser # Launches a live server with hot reloading
 ```
 
 After building, open `build/html/index.html` in a browser to view the documentation.
