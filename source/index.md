@@ -56,4 +56,5 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 hardware/hardware.md
 mechanical_integration/mechanical.md
 firmware/firmware.md
+ides/ides.md
 sdk/index.md
