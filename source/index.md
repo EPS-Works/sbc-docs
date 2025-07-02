@@ -14,7 +14,7 @@ Find a detailed description of how to power and communicate with your device in 
 
 ### Mechanical Integration
 
-Refer to the [Mechanical Integration](mech/mech.md) section for SBC mechanical specs like weight, dimensions, and 2D/3D models to help with integration. It also includes enclosure options available in our store.
+Refer to the [Mechanical Integration](mechanical_integration/mechanical.md) section for SBC mechanical specs like weight, dimensions, and 2D/3D models to help with integration. It also includes enclosure options available in our store.
 
 ### Firmware
 
@@ -54,5 +54,6 @@ If you have questions or suggestions, feel free to **[Contact Us](contact)**.
 :hidden:
 
 hardware/hardware.md
+mechanical_integration/mechanical.md
 firmware/firmware.md
 sdk/index.md
