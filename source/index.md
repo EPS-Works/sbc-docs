@@ -57,4 +57,5 @@ hardware/hardware.md
 mechanical_integration/mechanical.md
 firmware/firmware.md
 ides/ides.md
+application/application.md
 sdk/index.md
