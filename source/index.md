@@ -1,53 +1,44 @@
 # simpleRTK2B-SBC Documentation
 
-Welcome!  
-This is the documentation for **ArduSimple SBC**, a customizable dual-band GPS/GNSS RTK Single Board Computer.  
-It’s based on **u-blox ZED-F9** module and allows you to build any application using its centimeter-level accuracy.
+Welcome to the official documentation for the **ArduSimple SBC** — a customizable dual-band GPS/GNSS RTK Single Board Computer built on an **STM32** microcontroller and a **u-blox ZED-F9** module. Designed for flexible and high-performance embedded applications, it offers centimeter-level positioning accuracy.
 
-## User Guide
+## Quick Start Guide
 
-If this is the first time using the SBC, we suggest you check out these sections.
+**New to the SBC?** Start with our [Getting Started Guide](getting_started/quickstart.md) to quickly get your board up and running.
 
-### Hardware Overview
+It covers unboxing, initial setup, and your first positioning fix. Perfect for evaluating the board's capabilities before custom development.
 
-Find a detailed description of how to power and communicate with your device in the [Hardware Overview](hardware/hardware.md). It includes descriptions of all components and peripherals for your applications.
+## Platform Overview
 
-### Mechanical Integration
+Start here to understand the platform capabilities before diving into the details.
 
-Refer to the [Mechanical Integration](mechanical_integration/mechanical.md) section for SBC mechanical specs like weight, dimensions, and 2D/3D models to help with integration. It also includes enclosure options available in our store.
+The [Hardware Overview](hardware/hardware.md) covers the SBC's core components, including power input options, IO pinout, serial interfaces, RF connectors, memory specifications, and onboard sensors.
 
-### Firmware
+Visit the [Mechanical Integration](mechanical_integration/mechanical.md) section for mechanical specifications, 2D/3D models, dimensions, and enclosure options for integrating the SBC into physical projects.
 
-Our engineers continuously improve the SBC firmware to deliver the latest features. Learn how to update your firmware in the [Firmware](firmware/firmware.md) section.
+In the [Firmware](firmware/firmware.md) section you'll find how to keep your board up to date with the latest features and bug fixes. It provides update procedures, download links, version compatibility, and troubleshooting recovery scenarios.
 
-In this section, you’ll find:
+## Application Development
 
-- [Download Firmware](firmware/update.md) – Get the latest firmware version.
-- [Firmware Changelog](firmware/update.md) – Track new features and improvements in each firmware update.
-- [Hardware Changelog](firmware/update.md) – Track new features and improvements in SBC hardware versions.
+The [IDEs & Development Toolset](ides/ides.md) guide will help you setting up your development environment with our recommended tools, extensions, and configurations. It includes setup instructions for popular IDEs with MicroPython support, debugging capabilities, and productivity enhancements.
 
-### Load Your Application
+Once your environment is ready, follow our [Deploy Your Application](application/application.md) guide for uploading, launching, and managing your custom applications on the SBC. You'll find deployment methods, file management, and application lifecycle management.
 
-Discover how to upload and launch your own application by following the steps in the [Load Your Application](sw_update/sw_update.md) section.
+Get started with our custom SDK to build applications. The [SDK Developer Guide](sdk/index.md) includes a detailed API reference, code examples and best practices to accelerate development.
 
-### MicroPython IDEs
+## Hardware Integration
 
-We provide some recommended options and tutorials for a better experience in the [MicroPython IDEs](ides/ides.md) section, although any MicroPython IDE can be used.
+Interface with third-party components and expand your SBC's functionality.
 
-### SDK Developer Guide
+- [Relays](how_to_connect/relays) — Control high-power devices and switching applications.
+- [Motors](how_to_connect/motors) — Interface with servos, steppers, and DC motors.
+- [Sensors](how_to_connect/sensors) — Integrate additional sensors and measurement devices.
 
-If you're already familiar with the SBC hardware, jump directly to our [SDK Developer Guide](sdk/index.md).
+## Support & Community
 
-## How to Connect...
+**Need assistance?** We're here to help with technical questions, troubleshooting, and project guidance.
 
-This section helps you connect third-party devices to the SBC:
-
-- [Relays](how_to_connect/relays) – Use the SBC to switch high-power devices.
-- [Motors](how_to_connect/motors) – Easily control servo, stepper, and DC motors.
-
-## Need Help?
-
-If you have questions or suggestions, feel free to **[Contact Us](contact)**.
+For technical support, documentation feedback, or project consultation, please [Contact Us](contact).
 
 ```{toctree}
 :maxdepth: 2
@@ -59,3 +50,4 @@ firmware/firmware.md
 ides/ides.md
 application/application.md
 sdk/index.md
+```
