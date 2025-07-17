@@ -4,90 +4,65 @@
 
 > if you want to write your own software...
 
-An IDE (Integrated Development Environment) is a software application that facilitates the programming task.
+An Integrated Development Environment (IDE) is a software application that simplifies and enhances the programming process.
 
-The SBC is compatible with any IDE that supports MicroPython. In this section we want to introduce some of the IDEs that our engineers use on a daily basis to program the SBC.
+The SBC is compatible with any IDE that supports MicroPython. In this section, we’ll introduce some of the IDEs our engineers use regularly to develop software for the SBC.
 
 ## Generic Notepad
 
 Not much to say here 😊
 
-This is the simplest way to edit your code. You can use your preferred Notepad application, although [Notepad++](https://notepad-plus-plus.org/downloads) is a nice one since it highlights Python syntaxis. We use this editor to make quick changes to existing code that does not need much testing.
+This is the simplest way to edit your code. You can use any Notepad application you like, but [Notepad++](https://notepad-plus-plus.org/downloads) is a good choice since it highlights Python syntax.
 
 ![Notepad++](img/notepadpp.png)
 
 ## Thonny
 
-[Thonny](https://thonny.org) is a Python and MicroPython IDE. We like it because it is free, multiplatform, light and easy to use.
+[Thonny](https://thonny.org) is a free, lightweight, and cross-platform Python and MicroPython IDE. We like it because we can send and run code directly on the SBC with a single click.
 
-In this quick tutorial we will only cover the basics, you can find more information on their website.
+![Thonny](img/thonny.png)
 
-1. Connect your SBC to your PC via USB
-2. Run Thonny
-3. Go to Tools > Options > Interpreter
-   1. Select MicroPython (generic) as interpreter
-   2. Select your SBC Port
-   3. Click OK ![Thonny config](img/Thonny_cfg.png)
-4. Press the STOP button ![Thonny stop](img/Thonny_stop.png)
-
-If everything went ok, you should see a similar message in the shell which indicates that you connected successfully to the MicroPython terminal.
-
-![Thonny Welcome](img/Thonny_welcome.png)
-
-You can now write your application in the main window and click the Play button to run it. You will see your application output in the shell (window at the bottom).
-
-![Thonny shell](img/Thonny_test.png)
-
-Notice that you can also write commands directly in the shell.
+1. Select your SBC’s port and set the interpreter to **MicroPython (Generic)**.
+2. Click STOP to halt any running script and start a fresh session.
+3. Write your application code in the editor.
+4. Click Play to run the code on your SBC.
+5. View your application output in the Shell. You can also use the REPL here to run commands interactively.
 
 ## Terminal
 
-You can run or code any Python application directly from a terminal ([Putty](https://www.putty.org), [Realterm](https://sourceforge.net/projects/realterm), etc.).
+Although it's not practical for full application development, you can run commands directly from a terminal using tools like [Putty](https://www.putty.org), [Realterm](https://sourceforge.net/projects/realterm), or any other serial terminal.
 
-We will make a quick tutorial explaining how to connect to your SBC via Putty.
+On **macOS** or **Linux**, connecting to your SBC is straightforward. Just open the native terminal, identify the SBC's serial port, and use *screen* to connect:
 
-Choose the connection type. Select COMx port and 115200 speed, click Open.
-If you don't know your COM port, you can use Windows' Device Manager.
+```bash
+ls /dev/tty.usb*
+screen /dev/tty.usbmodem205F346331526
+```
 
-![Putty config](img/putty_config.png)
+Replace the port name with the one that matches your device. Once connected, you’ll be in the MicroPython REPL and can run code directly.
 
-If the connection is succesfull, SBC will show a welcome message and the MicroPython prompt `>>>`
+On **Windows**, you shall use an application like *PuTTY* to connect to your SBC.
 
-![Putty Welcome](img/putty_welcome.png)
+![Putty config](img/putty_config.jpeg)
 
-REPL means "Read Eval Print Loop" and it is a native feature of python and MicroPython.
-Here the user can develop scripts line by line, define functions or examine variables.
+1. Plug in your SBC via USB.
+2. Open Device Manager and check the COM port assigned to your SBC (e.g., COM32).
+3. Launch PuTTY.
+4. Under Connection type, select Serial.
+5. Configure to use the SBC's COM port (e.g., COM32) and Speed (baud rate) to 115200.
+6. Click Open.
 
-Just write a line of code and hit enter to execute it.
-
-![Putty REPL](img/putty_REPL.png)
-
-For more complex scripts, MicroPython supports paste mode. This mode allows paste longer scripts to the REPL.
-To enter paste mode, press <kbd>CTRL</kbd>+<kbd>D</kbd> in a BLANK LINE. MicroPython should change promt to `===`.
-Now you can paste your scritps. Remember that Putty uses mouse right click as paste command.
-Press <kbd>CTRL</kbd>+<kbd>E</kbd> to exit from the paste mode and execute your script.
+You should now see the MicroPython REPL prompt. You can type and execute commands directly.
 
 ## Jupyter
 
-Before start with jupyter notebooks, you can read the [Notebook Basics](https://nbviewer.jupyter.org/github/jupyter/notebook/blob/master/docs/source/examples/Notebook/Notebook%20Basics.ipynb) guide.
+[Jupyter Notebook](https://jupyter.org/) is an interactive coding environment that supports Python and can be used with MicroPython via tools like mpremote, pyboard.py, or custom kernels.
 
-The first step is to add a new notebook, for that you need to press new notebook button and select MicroPython-USB kernel.
+It’s a bit more advanced to set up, but an interesting alternative if you want to combine code, output, and documentation in a single place.
 
-![New notebook](img/jupyter_new_notebook.png)
+![Jupyter Notebook](img/jupyter.jpeg)
 
-Cells are small scripts that can be executed in MicroPython. Press "+" button to add new cells.
+1. Create a new notebook and select **MicroPython-USB** kernel.
+2. Run a connection cell with the `%serialconnect` command.
+3. Add as much cells as you need. Run your code as you would in any notebook.
 
-![Insert cell](img/jupyter_insert_cell.png)
-
-Before executing any sript in MicroPython, you should connect to the SBC. To do so, run a cell with %serialconnect command.
-To run cells, select cell and press "RUN" button.
-
-![Run cell](img/jupyter_run_cell.png)
-
-Click the notebook title to rename it.
-
-![Rename notebook](img/jupyter_rename.png)
-
-When your script is done, you can save it as a Jupyter notebook (.pynb) or download it as an .html file.
-
-![Jupyter download](img/jupyter_download.png)
