@@ -11,7 +11,7 @@ Don't panic, with our API and our application examples you will be able to easil
 - [RF Antennas](antennas.md)
 - [LEDs](led.md)
 - [Sensors](sensors.md)
-- [Memory](memory.md)
+- [Storage](storage.md)
 
 ```{toctree}
 :maxdepth: 2
@@ -23,4 +23,4 @@ pinout.md
 antennas.md
 led.md
 sensors.md
-memory.md
+storage.md
