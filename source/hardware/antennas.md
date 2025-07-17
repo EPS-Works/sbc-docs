@@ -1,16 +1,11 @@
 # RF Antennas
 
-All SBC versions have at least two SMA connectors: SMA1 and SMA2 that are connected internally to GPS1 and GPS2 signal inputs respectively.
+All SBC versions include at least SMA connectors `SMA1` internally connected to GNSS1 signal input.
 
-![SMA Connectors](img/SMA_connectors.png)
-*SMA Connectors*
+Additionally, the board provides `SMA2`, `SMA3` and `SMA4`, which are available for connecting external antennas to other SBC peripherals. These are directly linked to nearby MMCX connectors, allowing flexible routing via pigtail cables.
 
-In addition to that SMA3 and SMA4 can be used to mount external antennas of some of the SBC peripherals.
+![SMA Connectors](img/connectors_sma.jpg)
 
-SMA3 and SMA4 are connected directly to the MMCX connector next to them, so you can use a pigtail to connect the MMCX conenctor to any of the SBC peripherals.
+For instance, if you install the 4G NTRIP master modem, you can improve signal reception by connecting external antennas. Use a u.FL to MMCX pigtail to route the modem’s RF output to the MMCX and attach external antennas to the respective SMA connector.
 
-For example, if you plug the 4G NTRIP master modem on the SBC, you may want to improve the signal reception by adding two external antennas.
-
-You would use a uFL to MMCX pigtail to connect the modem signal output to the MMCX connector and then an external antenna to SMA3 and SMA4.
-
-![Pigtail cables](img/pigtails.png)
+This setup ensures optimal signal performance for cellular or other RF-based modules.
