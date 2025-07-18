@@ -1,30 +1,28 @@
 # Load your application
 
-There are 3 ways to load your MicroPython application
+There are 2 ways to load and run your MicroPython application on the SBC
 
-1. Run it directly from your [preferred IDE or terminal](../ides/ides.md).
+## Execute on-the-fly
 
-  This option is perfect during the development of your code since it will allow you to iterate fast during the coding process.
-  If you use this option, when you reset the power of your SBC, your application will not run since it is not stored in the non-volatile memory.
+You can run your script directly using your [preferred IDE or terminal](../ides/ides.md). This method works great during development, allowing quick iteration and testing. Keep in mind that the script is not stored in non-volatile memory and will not run automatically after a power cycle or reset.
 
-1. Rename your application *.py* file as `main.py` and drag and drop it to the SBC memory which is accessible with the Windows explorer as an external drive.
+## From SBC storage
 
-  After rebooting your SBC, your application will run automatically.
+Rename your application file to `main.py` and copy it to the SBC's storage drive.
+After reboot, the SBC will automatically run main.py.
 
-  This method is great to deploy your application.
+:::{tip}
+You can [precompile](https://www.ardusimple.com/distribute-mpy-precompiled-files) your main file into bytecode `main.mpy`.
 
-3. Compile your *.py* file and name it **main.mpy**, drag and drop it to the SBC memory which is accessible with the Windows explorer as an external drive.
-  After rebooting your SBC, your application will run automatically.
-
-  This method is great to deploy your application while hiding its content to the final customer to prevent any modifications.
-  Follow this [instructions](https://www.ardusimple.com/distribute-mpy-precompiled-files) on how to generate compiled *mpy* files.
+Precompiled .mpy files offer several benefits over plain .py files. They load faster and consume less memory by skipping the on-the-fly compilation step. It also prevents easy inspection or modification of the code, which is good to protect your code, but makes debugging and updating more difficult without access to the original .py source.
+:::
 
 :::{important}
-By using methods **2** or **3** you can lock temporaly the SBC (e.g.: if you use a watchdog without feeding it, the SBC will reset continuously).
+This method can temporarily lock the SBC, for example if your script enables a watchdog timer without feeding it, causing continuous resets.
 
-If this happens, try to:
+**If using a microSD card:**
+Remove the card, insert it into your computer, and delete or rename main.py or main.mpy.
 
-- If you are using the microSD memory, remove the microSD card and delete/rename the main.py/mpy file on it by inserting the card directly to your computer.
-- If you are using the SBC internal memory, reset the SBC and remove/rename the main.py/mpy as soon as the SBC memory is available.
-- Sometimes the SBC resets too fast and it is not possible to remove/rename the main.py/mpy. If this is your case you will need to return the SBC to its default setting by [loading the firmware](../firmware/firmware.md) again.
+**If using internal flash memory:**
+Power cycle the SBC and quickly delete or rename the file once the drive mounts. If the SBC resets too fast to access storage, you'll need to [restore the firmware](../firmware/firmware.md) to factory defaults.
 :::
