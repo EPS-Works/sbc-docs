@@ -8,6 +8,24 @@ An Integrated Development Environment (IDE) is a software application that simpl
 
 The SBC is compatible with any IDE that supports MicroPython. In this section, we’ll introduce some of the IDEs our engineers use regularly to develop software for the SBC.
 
+## Visual Studio Code
+
+[VSCode](https://code.visualstudio.com/) is a powerful, open-source, multiplatform code editor with excellent support for Python and MicroPython development through extensions.
+
+![VSCode](img/vscode.jpeg)
+
+While it requires a bit more setup than simpler tools, it's ideal for developers who want advanced features like IntelliSense, linting, formatting, version control, testing, and even integration with trending AI tools. VSCode offers the flexibility of a full development environment — perfect for larger or multi-file MicroPython projects.
+
+You’ll need at least the [Python](https://marketplace.visualstudio.com/items?itemName=ms-python.python) extension. We also recommend:
+
+- [Pylint](https://marketplace.visualstudio.com/items?itemName=ms-python.pylint) – for static code analysis.
+- [Black Formatter](https://marketplace.visualstudio.com/items?itemName=ms-python.black-formatter) – for consistent code formatting.
+- [Pymakr](https://marketplace.visualstudio.com/items?itemName=pycom.Pymakr) - for interacting and sending code to the SBC.
+
+:::{tip}
+We've prepared a [starter project template](https://github.com/EPS-Works/micropython-starter-template) with all the necessary configurations already set up. It includes full MicroPython stubs, support for our custom [SDK](../sdk/index.md), built-in autocompletion and documentation, testing setup, and compilation scripts — ready to use out of the box.
+:::
+
 ## Generic Notepad
 
 Not much to say here 😊
