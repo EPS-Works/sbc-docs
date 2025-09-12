@@ -12,12 +12,31 @@
 
 import os
 import sys
+from source.myp_mocks import setup_micropython_mocks
 
+sys.path.insert(0, os.path.abspath("."))  # Add source directory to path
 sys.path.insert(0, os.path.abspath(os.path.join("..", "sbc-sdk", "src")))
 sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "__mocks__")))
 
+# Setup MicroPython mocks
+setup_micropython_mocks()
+
 autodoc_preserve_defaults = True
-autodoc_mock_imports = ["utime"]
+autodoc_mock_imports = [
+  "utime",
+  "machine",
+  "micropython",
+  "gc",
+  "network",
+  "socket",
+  "ssl",
+  "ubinascii",
+  "uhashlib",
+  "ujson",
+  "ure",
+  "uselect",
+  "ustruct"
+]
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -40,11 +59,13 @@ myst_enable_extensions = ["html_image", "colon_fence", "deflist"]
 
 add_module_names = False
 
-def skip_module_docstring(app, what, name, obj, options, lines):
+def skip_module_docstring(_app, what, _name, _obj, _options, lines):
+    """Skip module docstrings."""
     if what == "module":
         lines.clear()  # removes the docstring contents
 
 def setup(app):
+    """Setup autodoc-process-docstring hook."""
     app.connect("autodoc-process-docstring", skip_module_docstring)
 
 
