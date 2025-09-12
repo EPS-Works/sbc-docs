@@ -329,7 +329,20 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-reduction">Noise Reduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.ain">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn"><code class="docutils literal notranslate"><span class="pre">AnalogIn</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.SAMPLE_SIZE"><code class="docutils literal notranslate"><span class="pre">AnalogIn.SAMPLE_SIZE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.value"><code class="docutils literal notranslate"><span class="pre">AnalogIn.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.voltage"><code class="docutils literal notranslate"><span class="pre">AnalogIn.voltage</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn.value"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn.voltage"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn.voltage</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -378,8 +391,95 @@
 </pre></div>
 </div>
 </section>
-<section id="class-reference">
-<h2>Class Reference<a class="headerlink" href="#class-reference" title="Link to this heading">#</a></h2>
+<section id="module-sdk.ain">
+<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.ain" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdk.ain.AnalogIn">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">AnalogIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pin</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">voltage_divider</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.ain.AnalogIn" title="Link to this definition">#</a></dt>
+<dd><p>Provides an interface for reading analog values and voltages from pins.</p>
+<p>This class implements noise reduction through multiple sampling and provides
+both raw ADC values and voltage readings. It supports voltage divider
+configurations for accurate voltage measurements.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdk.ain.AnalogIn.SAMPLE_SIZE">
+<span class="sig-name descname"><span class="pre">SAMPLE_SIZE</span></span><a class="headerlink" href="#sdk.ain.AnalogIn.SAMPLE_SIZE" title="Link to this definition">#</a></dt>
+<dd><p>Number of samples to take for noise reduction (default: 500).</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pin</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>voltage_divider</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">float</span></code></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.ain.AnalogIn.value">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sdk.ain.AnalogIn.value" title="Link to this definition">#</a></dt>
+<dd><p>Get the filtered analog value.</p>
+<p>Reads multiple samples from the ADC and returns the median value to
+reduce noise by averaging out transient fluctuations.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The median value from the sampled analog readings (0-65535).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.ain.AnalogIn.voltage">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voltage</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sdk.ain.AnalogIn.voltage" title="Link to this definition">#</a></dt>
+<dd><p>Get the voltage of the analog input.</p>
+<p>Calculates the actual voltage using the raw ADC value and the configured
+voltage divider ratio.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The voltage in volts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="sdk.ain.DifferentialAnalogIn">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">DifferentialAnalogIn</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">target</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ref</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.ain.DifferentialAnalogIn" title="Link to this definition">#</a></dt>
+<dd><p>Provides differential measurements between two analog inputs.</p>
+<p>This class calculates the difference between a target and reference analog input,
+useful for applications requiring relative measurements or noise cancellation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.ain.AnalogIn" title="sdk.ain.AnalogIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnalogIn</span></code></a></span>)</p></li>
+<li><p><strong>ref</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.ain.AnalogIn" title="sdk.ain.AnalogIn"><code class="xref py py-class docutils literal notranslate"><span class="pre">AnalogIn</span></code></a></span>)</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.ain.DifferentialAnalogIn.value">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">value</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sdk.ain.DifferentialAnalogIn.value" title="Link to this definition">#</a></dt>
+<dd><p>Get the differential raw value.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The difference between target and reference raw values.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.ain.DifferentialAnalogIn.voltage">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">voltage</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#sdk.ain.DifferentialAnalogIn.voltage" title="Link to this definition">#</a></dt>
+<dd><p>Get the differential voltage.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>The voltage difference between target and reference in volts.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -431,7 +531,20 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#noise-reduction">Noise Reduction</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.ain">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn"><code class="docutils literal notranslate"><span class="pre">AnalogIn</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.SAMPLE_SIZE"><code class="docutils literal notranslate"><span class="pre">AnalogIn.SAMPLE_SIZE</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.value"><code class="docutils literal notranslate"><span class="pre">AnalogIn.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.AnalogIn.voltage"><code class="docutils literal notranslate"><span class="pre">AnalogIn.voltage</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn.value"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn.value</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.ain.DifferentialAnalogIn.voltage"><code class="docutils literal notranslate"><span class="pre">DifferentialAnalogIn.voltage</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

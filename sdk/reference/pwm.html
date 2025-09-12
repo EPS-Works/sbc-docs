@@ -328,7 +328,19 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.pwm">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM"><code class="docutils literal notranslate"><span class="pre">PWM</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.MIN_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">PWM.MIN_FREQUENCY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.MAX_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">PWM.MAX_FREQUENCY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.duty_cycle"><code class="docutils literal notranslate"><span class="pre">PWM.duty_cycle</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.frequency"><code class="docutils literal notranslate"><span class="pre">PWM.frequency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.is_running"><code class="docutils literal notranslate"><span class="pre">PWM.is_running</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.start_pwm"><code class="docutils literal notranslate"><span class="pre">PWM.start_pwm()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.stop_pwm"><code class="docutils literal notranslate"><span class="pre">PWM.stop_pwm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -359,8 +371,106 @@
 </pre></div>
 </div>
 </section>
-<section id="class-reference">
-<h2>Class Reference<a class="headerlink" href="#class-reference" title="Link to this heading">#</a></h2>
+<section id="module-sdk.pwm">
+<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.pwm" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdk.pwm.PWM">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">PWM</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dio</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.pwm.PWM" title="Link to this definition">#</a></dt>
+<dd><p>Software PWM controller for digital output pins.</p>
+<p>This class implements PWM functionality by toggling a DigitalIO pin at a specified
+frequency and duty cycle using software timers. It provides precise timing control
+and automatic resource management for PWM operations.</p>
+<p>The class supports frequency and duty cycle adjustments during operation, with
+automatic timer recalculation to maintain signal accuracy.</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.MIN_FREQUENCY">
+<span class="sig-name descname"><span class="pre">MIN_FREQUENCY</span></span><a class="headerlink" href="#sdk.pwm.PWM.MIN_FREQUENCY" title="Link to this definition">#</a></dt>
+<dd><p>Minimum supported PWM frequency in Hz.</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.MAX_FREQUENCY">
+<span class="sig-name descname"><span class="pre">MAX_FREQUENCY</span></span><a class="headerlink" href="#sdk.pwm.PWM.MAX_FREQUENCY" title="Link to this definition">#</a></dt>
+<dd><p>Maximum supported PWM frequency in Hz.</p>
+</dd></dl>
+
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>dio</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dio.html#sdk.dio.DigitalIO" title="sdk.dio.DigitalIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">DigitalIO</span></code></a></span>)</p>
+</dd>
+</dl>
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.duty_cycle">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">duty_cycle</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sdk.pwm.PWM.duty_cycle" title="Link to this definition">#</a></dt>
+<dd><p>Get the current PWM duty cycle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Duty cycle percentage (0-100).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.frequency">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">frequency</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">int</span></em><a class="headerlink" href="#sdk.pwm.PWM.frequency" title="Link to this definition">#</a></dt>
+<dd><p>Get the current PWM frequency.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>Frequency in Hertz (Hz).</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py property">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.is_running">
+<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_running</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#sdk.pwm.PWM.is_running" title="Link to this definition">#</a></dt>
+<dd><p>Check if the PWM signal is currently active.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the PWM signal is being generated, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.start_pwm">
+<span class="sig-name descname"><span class="pre">start_pwm</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">frequency</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">duty_cycle</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.pwm.PWM.start_pwm" title="Link to this definition">#</a></dt>
+<dd><p>Start generating a PWM signal.</p>
+<p>This method begins generating a PWM signal with the specified frequency
+and duty cycle. It creates and configures the necessary timer for
+accurate signal generation.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>frequency</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The frequency of the PWM signal in Hz.</p></li>
+<li><p><strong>duty_cycle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The duty cycle of the PWM signal as a percentage (0-100).</p></li>
+</ul>
+</dd>
+<dt class="field-even">Raises<span class="colon">:</span></dt>
+<dd class="field-even"><p><strong>ValueError</strong> – If the frequency is outside the supported range or if
+    the duty cycle is not between 0 and 100.</p>
+</dd>
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdk.pwm.PWM.stop_pwm">
+<span class="sig-name descname"><span class="pre">stop_pwm</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.pwm.PWM.stop_pwm" title="Link to this definition">#</a></dt>
+<dd><p>Stop the PWM signal generation.</p>
+<p>This method halts the PWM signal and releases any resources used by
+the timer. The output pin is set to a low state when stopped.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
 </section>
 </section>
 
@@ -411,7 +521,19 @@
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.pwm">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM"><code class="docutils literal notranslate"><span class="pre">PWM</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.MIN_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">PWM.MIN_FREQUENCY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.MAX_FREQUENCY"><code class="docutils literal notranslate"><span class="pre">PWM.MAX_FREQUENCY</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.duty_cycle"><code class="docutils literal notranslate"><span class="pre">PWM.duty_cycle</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.frequency"><code class="docutils literal notranslate"><span class="pre">PWM.frequency</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.is_running"><code class="docutils literal notranslate"><span class="pre">PWM.is_running</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.start_pwm"><code class="docutils literal notranslate"><span class="pre">PWM.start_pwm()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.pwm.PWM.stop_pwm"><code class="docutils literal notranslate"><span class="pre">PWM.stop_pwm()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 </ul>
   </nav></div>
 

@@ -329,7 +329,16 @@
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-notes">Security Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.utils.ota">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA"><code class="docutils literal notranslate"><span class="pre">OTA</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.create"><code class="docutils literal notranslate"><span class="pre">OTA.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.download"><code class="docutils literal notranslate"><span class="pre">OTA.download()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.update"><code class="docutils literal notranslate"><span class="pre">OTA.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.hash_file"><code class="docutils literal notranslate"><span class="pre">hash_file()</span></code></a></li>
+</ul>
+</li>
 </ul>
             </nav>
         </div>
@@ -373,8 +382,103 @@
 <li><p>NEVER commit the <code class="docutils literal notranslate"><span class="pre">.ota</span></code> file to version control.</p></li>
 </ul>
 </section>
-<section id="class-reference">
-<h2>Class Reference<a class="headerlink" href="#class-reference" title="Link to this heading">#</a></h2>
+<section id="module-sdk.utils.ota">
+<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.utils.ota" title="Link to this heading">#</a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="sdk.utils.ota.OTA">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">OTA</span></span><a class="headerlink" href="#sdk.utils.ota.OTA" title="Link to this definition">#</a></dt>
+<dd><p>Over-The-Air update client for managing firmware and application updates.</p>
+<p>This class provides a secure interface for downloading and managing updates
+from a GitHub repository. It handles authentication, file integrity verification,
+and secure configuration storage.</p>
+<p>The client uses an encrypted .ota configuration file to store repository
+credentials and settings. All sensitive data is encoded using a salt-based
+substitution cipher for improved security.</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="sdk.utils.ota.OTA.create">
+<span class="sig-name descname"><span class="pre">create</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">user</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">repo</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">token</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">root</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">salt</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">''</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.utils.ota.OTA.create" title="Link to this definition">#</a></dt>
+<dd><p>Create and store an encoded .ota configuration file.</p>
+<p>This method generates a secure configuration file containing encoded
+repository credentials and settings. The configuration is protected
+using a salt-based substitution cipher for improved security.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>user</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – GitHub username or organization name.</p></li>
+<li><p><strong>repo</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Repository name.</p></li>
+<li><p><strong>token</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – GitHub personal access token with appropriate permissions.</p></li>
+<li><p><strong>root</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) – Optional root directory path to limit updates to (default: “” for root).</p></li>
+<li><p><strong>salt</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">&quot;&quot;</span></code>) – Optional salt string for encoding (default: “”).</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdk.utils.ota.OTA.download">
+<span class="sig-name descname"><span class="pre">download</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">url</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#sdk.utils.ota.OTA.download" title="Link to this definition">#</a></dt>
+<dd><p>Download a file from the specified URL and save it to the given path.</p>
+<p>This method handles the secure download of files using the configured
+authentication token. It includes proper error handling and timeout
+management to ensure reliable downloads.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>url</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The URL from which to download the file.</p></li>
+<li><p><strong>path</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The local file path where the downloaded content should be saved.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>True if the download and file save were successful, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="sdk.utils.ota.OTA.update">
+<span class="sig-name descname"><span class="pre">update</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#sdk.utils.ota.OTA.update" title="Link to this definition">#</a></dt>
+<dd><p>Update all files from the remote repository.</p>
+<p>This method compares local files with their remote counterparts and
+downloads any that have changed. It handles directories recursively,
+downloading all files in subdirectories. If a root directory is specified
+in the .ota configuration file, only files from that directory will
+be updated.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span></p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>The number of files that were successfully updated.</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="sdk.utils.ota.hash_file">
+<span class="sig-name descname"><span class="pre">hash_file</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#sdk.utils.ota.hash_file" title="Link to this definition">#</a></dt>
+<dd><p>Compute the SHA-1 hash of a file’s content.</p>
+<p>This function reads the contents of a file and calculates its SHA-1
+hash, prefixed with a blob header. The header includes the length of
+the file content to mimic the hash computation used in version control
+systems like Git.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>filename</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – The path to the file whose hash is to be computed.</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span></p>
+</dd>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><p>An hexadecimal string representing the SHA-1 hash of the file content.</p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
 </section>
 
@@ -426,7 +530,16 @@
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#security-notes">Security Notes</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#class-reference">Class Reference</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.utils.ota">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA"><code class="docutils literal notranslate"><span class="pre">OTA</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.create"><code class="docutils literal notranslate"><span class="pre">OTA.create()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.download"><code class="docutils literal notranslate"><span class="pre">OTA.download()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.OTA.update"><code class="docutils literal notranslate"><span class="pre">OTA.update()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.utils.ota.hash_file"><code class="docutils literal notranslate"><span class="pre">hash_file()</span></code></a></li>
+</ul>
+</li>
 </ul>
   </nav></div>
 
