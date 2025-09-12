@@ -1,0 +1,597 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Pinout, Cables and Interfaces &#8212; sbc-docs  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=8f2a1f02" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="../_static/custom.css?v=0aeec323" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="../_static/doctools.js?v=9bcbadda"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'hardware/pinout';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="RF Antennas" href="antennas.html" />
+    <link rel="prev" title="Power" href="power.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">sbc-docs  documentation</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="hardware.html">Hardware Overview</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="architecture.html">Internal Architecture</a></li>
+<li class="toctree-l2"><a class="reference internal" href="power.html">Power</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Pinout, Cables and Interfaces</a></li>
+<li class="toctree-l2"><a class="reference internal" href="antennas.html">RF Antennas</a></li>
+<li class="toctree-l2"><a class="reference internal" href="led.html">LEDs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="sensors.html">Sensors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="storage.html">Storage</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1"><a class="reference internal" href="../mechanical_integration/mechanical.html">Mechanical integration</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../firmware/firmware.html">Firmware</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../ides/ides.html">MicroPython IDEs</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../application/application.html">Load your application</a></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="../sdk/index.html">SDK Developer Guide</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="../sdk/reference/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ain.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/bno08x.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/canbus.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/debounce.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/dio.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/encoder.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ethernet.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/flash.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/forward.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/led.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/nmea.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ntrip.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ota.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/periodic.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/pwm.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/retry.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/serial.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/storage.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/stream.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/usb.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ublox.html">Class Reference</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../sdk/reference/ubx.html">Class Reference</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="../sdk/examples/index.html">Code Examples</a></li>
+</ul>
+</details></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/hardware/pinout.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Pinout, Cables and Interfaces</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-inputs">Analog inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-inputs">Digital inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-outputs-including-pwm">Digital outputs (including PWM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timepulse">Timepulse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs232">RS232</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet">Ethernet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-bus">CAN Bus</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="pinout-cables-and-interfaces">
+<h1>Pinout, Cables and Interfaces<a class="headerlink" href="#pinout-cables-and-interfaces" title="Link to this heading">#</a></h1>
+<p>The SBC has the following interfaces:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">Analog</span> <span class="pre">inputs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Digital</span> <span class="pre">inputs</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Digital</span> <span class="pre">outputs</span> <span class="pre">(including</span> <span class="pre">PWM)</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Timepulse</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">USB</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">2</span> <span class="pre">x</span> <span class="pre">RS232</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">Ethernet</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">CAN</span> <span class="pre">Bus</span></code></p></li>
+</ul>
+<p>The picture below shows the generic pinout of the SBC connectors. The names of the pins are colored based on the cable color.</p>
+<p><img alt="SBC Pinout" src="../_images/pinout.jpg" /></p>
+<p>Each connector has a unique shape, so it is physically impossible to connect the cables incorrectly.</p>
+<p>If you need to prepare your own custom wiring harness, you can find the connector part numbers here.:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Description</p></th>
+<th class="head"><p>Cable connector</p></th>
+<th class="head"><p>SBC connector</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Analog input, digital input/output/PWM</p></td>
+<td><p>Molex #430251000</p></td>
+<td><p>Molex #430451000</p></td>
+</tr>
+<tr class="row-odd"><td><p>Power, CANbus</p></td>
+<td><p>Molex #430250400</p></td>
+<td><p>Molex #430450400</p></td>
+</tr>
+<tr class="row-even"><td><p>2 x RS232</p></td>
+<td><p>Molex #430251200</p></td>
+<td><p>Molex #430451200</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<section id="analog-inputs">
+<h2>Analog inputs<a class="headerlink" href="#analog-inputs" title="Link to this heading">#</a></h2>
+<p>The SBC provides support for analog voltage monitoring through the following input pins:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">VAIN1</span></code> and <code class="docutils literal notranslate"><span class="pre">VAIN2</span></code>: Single-ended analog inputs capable of measuring voltage levels.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">VAIN3</span> <span class="pre">P</span></code> and <code class="docutils literal notranslate"><span class="pre">VAIN3</span> <span class="pre">N</span></code>: A differential analog input pair for more accurate voltage measurements with improved noise rejection.</p></li>
+</ul>
+<p>These analog inputs accept voltages in the range of 0 V to +22 V with a 12-bit resolution, providing 4096 discrete levels of precision.</p>
+<p>Additionally, the system allows you to monitor the main input supply voltage via the <code class="docutils literal notranslate"><span class="pre">VIN</span></code> signal.</p>
+<p><img alt="Analog Inputs" src="../_images/pinout_ain.jpg" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Analog input ground is connected to <code class="docutils literal notranslate"><span class="pre">GND</span> <span class="pre">VAIN</span></code>, which is different from <code class="docutils literal notranslate"><span class="pre">GND</span></code>. Both grounds can be connected together if needed.</p>
+</div>
+<p>For a description and examples of the methods to read these signals, please go to the <a class="reference internal" href="../sdk/reference/ain.html"><span class="std std-doc">AnalogIn documentation</span></a>.</p>
+</section>
+<section id="digital-inputs">
+<h2>Digital inputs<a class="headerlink" href="#digital-inputs" title="Link to this heading">#</a></h2>
+<p>The SBC includes two digital input pins for reading binary ON/OFF signals: <code class="docutils literal notranslate"><span class="pre">DIN1</span></code> and <code class="docutils literal notranslate"><span class="pre">DIN2</span></code>. These inputs accept voltage levels from 0 V to 24 V. A signal is considered ON when the voltage is ≥ 4.9 V; any voltage below that is interpreted as OFF.</p>
+<p><img alt="Digital Inputs" src="../_images/pinout_din.jpg" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Digital input ground is connected to <code class="docutils literal notranslate"><span class="pre">GND</span> <span class="pre">IOREF</span></code>, which is different from <code class="docutils literal notranslate"><span class="pre">GND</span></code>. Both grounds can be connected together if needed.</p>
+</div>
+<p>For a description and examples of the methods to read these signals, please go to the <a class="reference internal" href="../sdk/reference/dio.html"><span class="std std-doc">DigitalIO documentation</span></a>.</p>
+</section>
+<section id="digital-outputs-including-pwm">
+<h2>Digital outputs (including PWM)<a class="headerlink" href="#digital-outputs-including-pwm" title="Link to this heading">#</a></h2>
+<p>The SBC features four digital output pins: <code class="docutils literal notranslate"><span class="pre">DOUT1</span></code>, <code class="docutils literal notranslate"><span class="pre">DOUT2</span></code>, <code class="docutils literal notranslate"><span class="pre">DOUT3</span></code> and <code class="docutils literal notranslate"><span class="pre">DOUT4</span></code>. Each pin can operate as a standard digital output (logic LOW/HIGH) or as a PWM output for generating pulse-width modulated signals.</p>
+<p>The output voltage levels are referenced to <code class="docutils literal notranslate"><span class="pre">VCC</span> <span class="pre">IOREF</span></code>, which defines the HIGH level for these outputs.</p>
+<p><img alt="Digital Outputs" src="../_images/pinout_dout.jpg" /></p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>Digital output ground is connected to <code class="docutils literal notranslate"><span class="pre">GND</span> <span class="pre">IOREF</span></code>, which is different from <code class="docutils literal notranslate"><span class="pre">GND</span></code>. Both grounds can be connected together if needed.</p>
+</div>
+<p>For a description and examples of the methods to set these signals, please go to the <a class="reference internal" href="../sdk/reference/dio.html"><span class="std std-doc">DigitalIO documentation</span></a>.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>For detailed connection guidelines and schematics of devices compatible with the SBC’s digital outputs, refer to the dedicated sections: <a class="reference internal" href="#motors_dc"><span class="xref myst">DC motors</span></a>, <a class="reference internal" href="#motors_srv"><span class="xref myst">Servo motors</span></a>, <a class="reference internal" href="#motors_step"><span class="xref myst">Stepper motors</span></a> and <a class="reference internal" href="#relays"><span class="xref myst">Relays</span></a>.</p>
+</div>
+</section>
+<section id="timepulse">
+<h2>Timepulse<a class="headerlink" href="#timepulse" title="Link to this heading">#</a></h2>
+<p>The <strong>GNSS1 timepulse signal</strong> is accessible through a dedicated pin on the STM32. You can use it for precise timing applications, such as synchronization or timestamping.</p>
+<p>To enable and configure this signal in your firmware, use the following code:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span>
+
+<span class="n">GNSS1</span><span class="o">.</span><span class="n">timepulse</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
+<span class="n">GNSS1</span><span class="o">.</span><span class="n">timepulse</span><span class="o">.</span><span class="n">low</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="usb">
+<h2>USB<a class="headerlink" href="#usb" title="Link to this heading">#</a></h2>
+<p>The USB Type-C connector serves both as a power input and a data interface.</p>
+<p><img alt="USB-C port" src="../_images/port_usb.jpg" /></p>
+<p>Through this single connection, you can power the board and access or configure multiple onboard components:</p>
+<ul class="simple">
+<li><p>STM32 microcontroller: Access the MicroPython terminal for scripting and control.</p></li>
+<li><p>Internal flash or microSD card (if inserted): Mountable as USB mass storage for file transfer.</p></li>
+<li><p>GNSS Receivers:</p>
+<ul>
+<li><p>GNSS1: Always available</p></li>
+<li><p>GNSS2 and GNSS3: Available on supported models</p></li>
+</ul>
+</li>
+<li><p>XBEE Modules: If populated, these can be configured via USB</p></li>
+<li><p>4G Modem: Available on variants with cellular support</p></li>
+</ul>
+<p>Each supported device is automatically detected and made accessible over USB, simplifying development and diagnostics.</p>
+</section>
+<section id="rs232">
+<h2>RS232<a class="headerlink" href="#rs232" title="Link to this heading">#</a></h2>
+<p>The SBC includes two RS232 output ports for serial communication with external devices or debugging tools.</p>
+<ul class="simple">
+<li><p><strong>RS232 #1</strong>: Connected to the STM32 microcontroller. It can be configured freely in firmware, with a maximum baud rate of 250 kbps.</p></li>
+<li><p><strong>RS232 #2</strong>: Permanently wired to GNSS1’s UART2 port, providing direct access to the primary GPS/GNSS receiver.</p></li>
+</ul>
+<p><img alt="RS232 Pinout" src="../_images/pinout_rs232.jpg" /></p>
+</section>
+<section id="ethernet">
+<h2>Ethernet<a class="headerlink" href="#ethernet" title="Link to this heading">#</a></h2>
+<p>The SBC features a standard Ethernet interface, allowing you to connect the board to a local network or the Internet. This enables capabilities such as remote access, firmware updates, data transmission, or integration with networked services.</p>
+<p><img alt="Ethernet port" src="../_images/port_ethernet.jpg" /></p>
+</section>
+<section id="can-bus">
+<h2>CAN Bus<a class="headerlink" href="#can-bus" title="Link to this heading">#</a></h2>
+<p>The SBC includes a CAN Bus interface, allowing it to connect to any standard CAN network and operate as a CAN node. It can send and receive CAN frames, making it suitable for integration into automotive, industrial, or embedded communication systems.</p>
+<p><img alt="CAN Bus pinout" src="../_images/pinout_canbus.jpg" /></p>
+<p>For a description and examples of the methods to interact with the CAN bus, visit the <a class="reference internal" href="../sdk/reference/canbus.html"><span class="std std-doc">CAN Bus documentation</span></a>.</p>
+<div class="admonition important">
+<p class="admonition-title">Important</p>
+<p>For reliable CAN Bus operation, proper termination is required. Standard practice is to place a 120 Ω resistor at each end of the bus, resulting in ~60 Ω across CAN HIGH and CAN LOW.
+You can check termination by measuring resistance between CAN HIGH and CAN LOW with the system powered off.</p>
+<p>If your setup lacks termination, the SBC includes a built-in 120 Ω resistor—just install a jumper on the marked pins to enable it.</p>
+<p><img alt="CAN Bus termination" src="../_images/canbus_termination.jpg" /></p>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="power.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Power</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="antennas.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">RF Antennas</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#analog-inputs">Analog inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-inputs">Digital inputs</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#digital-outputs-including-pwm">Digital outputs (including PWM)</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#timepulse">Timepulse</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#usb">USB</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs232">RS232</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#ethernet">Ethernet</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#can-bus">CAN Bus</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By EPS Works SL
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2025, EPS Works SL.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
