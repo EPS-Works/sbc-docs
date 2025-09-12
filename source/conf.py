@@ -12,14 +12,19 @@
 
 import os
 import sys
-from source.myp_mocks import setup_micropython_mocks
+import importlib.util
 
+# Add paths to sys.path
 sys.path.insert(0, os.path.abspath("."))  # Add source directory to path
 sys.path.insert(0, os.path.abspath(os.path.join("..", "sbc-sdk", "src")))
 sys.path.append(os.path.abspath(os.path.join("..", "sbc-sdk", "tests", "__mocks__")))
 
-# Setup MicroPython mocks
-setup_micropython_mocks()
+# Setup MicroPython mocks - import from current directory
+spec = importlib.util.spec_from_file_location("myp_mocks", os.path.join(os.path.dirname(__file__), "myp_mocks.py"))
+if spec and spec.loader:
+    myp_mocks = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(myp_mocks)
+    myp_mocks.setup_micropython_mocks()
 
 autodoc_preserve_defaults = True
 autodoc_mock_imports = [
