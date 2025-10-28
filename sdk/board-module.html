@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>SDK Developer Guide &#8212; sbc-docs  documentation</title>
+    <title>Board Hardware Module &#8212; sbc-docs  documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="../_static/doctools.js?v=9bcbadda"></script>
     <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/index';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/board-module';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="API Reference" href="reference/index.html" />
-    <link rel="prev" title="Load your application" href="../application/application.html" />
+    <link rel="next" title="Code Examples" href="examples/index.html" />
+    <link rel="prev" title="UBX" href="reference/ubx.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -153,7 +153,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../firmware/firmware.html">Firmware</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../ides/ides.html">MicroPython IDEs</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../application/application.html">Load your application</a></li>
-<li class="toctree-l1 current active has-children"><a class="current reference internal" href="#">SDK Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="index.html">SDK Developer Guide</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
 <li class="toctree-l2 has-children"><a class="reference internal" href="reference/index.html">API Reference</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="reference/ain.html">AnalogIn</a></li>
 <li class="toctree-l3"><a class="reference internal" href="reference/bno08x.html">BNO08x</a></li>
@@ -179,7 +179,7 @@
 <li class="toctree-l3"><a class="reference internal" href="reference/ubx.html">UBX</a></li>
 </ul>
 </details></li>
-<li class="toctree-l2"><a class="reference internal" href="board-module.html">Board Hardware Module</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Board Hardware Module</a></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="examples/index.html">Code Examples</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3"><a class="reference internal" href="examples/async_gnss_stream.html">Asynchronous GNSS Message Handler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="examples/ntrip_forward.html">Asynchronous RTK Correction Bridge Using NTRIP and GNSS</a></li>
@@ -246,7 +246,7 @@
       
       
       
-      <li><a href="../_sources/sdk/index.md" target="_blank"
+      <li><a href="../_sources/sdk/board-module.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -322,7 +322,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>SDK Developer Guide</h1>
+    <h1>Board Hardware Module</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -332,7 +332,7 @@
             </div>
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-the-sdk">Get started with the SDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
 </ul>
             </nav>
         </div>
@@ -344,29 +344,77 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="sdk-developer-guide">
-<h1>SDK Developer Guide<a class="headerlink" href="#sdk-developer-guide" title="Link to this heading">#</a></h1>
-<p>Welcome to the Ardusimple’s SDK Developer Guide. This guide provides a gentle but thorough introduction to the SDK and shows how to use it effectively to build custom applications.</p>
-<p>The Ardusimple’s SDK (<em>Software Development Kit</em>) provides a high-level MicroPython interface to interact with board’s peripherals, hardware modules, and communication systems — all without needing to install anything extra. It comes bundled with the firmware and is ready to use out of the box.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Led</span>
+  <section id="board-hardware-module">
+<h1>Board Hardware Module<a class="headerlink" href="#board-hardware-module" title="Link to this heading">#</a></h1>
+<p>Each device ships with its own pre-configured board-specific hardware module that make onboard components instantly available —no pin mapping, no manual initialization- so you can use hardware right away and focus on application logic, not setup.</p>
+<p>For SBC (Single Board Computer) devices, the board-specific module is called <code class="docutils literal notranslate"><span class="pre">sbc</span></code>. To see what hardware instances are available on your specific board, you can inspect the module.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">sbc</span>
 
-<span class="n">led</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="s1">&#39;LED_GREEN&#39;</span><span class="p">)</span>
-<span class="n">led</span><span class="o">.</span><span class="n">blink</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="c1"># List all available hardware instances</span>
+<span class="nb">print</span><span class="p">(</span><span class="nb">dir</span><span class="p">(</span><span class="n">sbc</span><span class="p">))</span>
+
+<span class="c1"># Get information about a specific instance</span>
+<span class="n">help</span><span class="p">(</span><span class="n">sbc</span><span class="o">.</span><span class="n">GNSS1</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>Each board also provides its own module with already configured hardware instances, so you don’t have to worry about what specific pins or ports are used by each component.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">LedGreen</span>
+<p>Setting up embedded hardware manually requires knowing every pin, port, and timing parameter — and getting their initialization order right. It’s slow, error-prone, and distracts from your actual goals.</p>
+<!-- markdownlint-disable-next-line MD036 -->
+<p><strong>Using the generic SDK (requires manual configuration)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Manual configuration required</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Led</span><span class="p">,</span> <span class="n">XBeeSocket</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
 
-<span class="n">LedGreen</span><span class="o">.</span><span class="n">blink</span><span class="p">(</span><span class="n">times</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">period</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">LedGreen</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;LEDGREEN&quot;</span><span class="p">)</span>
+<span class="n">GNSS1</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">))</span>
+<span class="n">XBEE_A</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+
+<span class="n">LedGreen</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">GNSS1</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GGA&#39;</span><span class="p">])</span>
+<span class="n">UART2</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
-<section id="get-started-with-the-sdk">
-<h2>Get started with the SDK<a class="headerlink" href="#get-started-with-the-sdk" title="Link to this heading">#</a></h2>
-<p>If you’re ready to get hands-on with the SDK, follow the <a class="reference internal" href="reference/index.html"><span class="std std-doc">API Reference</span></a>.</p>
-<p>Learn about <a class="reference internal" href="board-module.html"><span class="std std-doc">Board-Specific Hardware</span></a> to understand how to use pre-configured hardware instances.</p>
-<p>If you’re looking for real-world usage examples and code snippets, see the <a class="reference internal" href="examples/index.html"><span class="std std-doc">Code Examples</span></a>.</p>
-<div class="toctree-wrapper compound">
+<!-- markdownlint-disable-next-line MD036 -->
+<p><strong>Using the board-specific module (zero configuration)</strong></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># Hardware is already configured and ready to use</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">LedGreen</span><span class="p">,</span> <span class="n">GNSS1</span><span class="p">,</span> <span class="n">XBEE_A</span>
+
+<span class="n">LedGreen</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+<span class="n">GNSS1</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GGA&#39;</span><span class="p">])</span>
+<span class="n">XBEE_A</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">b</span><span class="s1">&#39;Hello World&#39;</span><span class="p">)</span>
+</pre></div>
 </div>
+<section id="best-practices">
+<h2>Best Practices<a class="headerlink" href="#best-practices" title="Link to this heading">#</a></h2>
+<p>Always prefer board-specific instances over manual SDK configuration.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># ✅ Preferred: Use board-specific instance</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span>
+<span class="n">GNSS1</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GGA&#39;</span><span class="p">])</span>
+
+<span class="c1"># ❌ Avoid: Manual configuration (unless necessary)</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">XBeeSocket</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
+<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">))</span>
+</pre></div>
+</div>
+<p>Board modules provide hardware instances, but you can still use SDK classes for additional functionality.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span><span class="p">,</span> <span class="n">Stream</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">NMEAParser</span>
+
+<span class="c1"># Use board hardware with SDK utilities</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">GNSS1</span><span class="p">)</span>
+<span class="n">cursor</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__stream__&#39;</span><span class="p">);</span>
+<span class="k">with</span> <span class="n">Stream</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">cursor</span><span class="p">,</span> <span class="n">parsers</span><span class="o">=</span><span class="p">[</span><span class="n">NMEAParser</span><span class="p">()])</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Use manual SDK configuration when:</p>
+<ul class="simple">
+<li><p>Working with external hardware not on the board</p></li>
+<li><p>Needing custom configuration not available in board instances</p></li>
+<li><p>Provided instances lack a specific functionality</p></li>
+</ul>
 </section>
 </section>
 
@@ -382,20 +430,20 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="../application/application.html"
+       href="reference/ubx.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Load your application</p>
+        <p class="prev-next-title">UBX</p>
       </div>
     </a>
     <a class="right-next"
-       href="reference/index.html"
+       href="examples/index.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">API Reference</p>
+        <p class="prev-next-title">Code Examples</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -416,7 +464,7 @@
   </div>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-started-with-the-sdk">Get started with the SDK</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#best-practices">Best Practices</a></li>
 </ul>
   </nav></div>
 
