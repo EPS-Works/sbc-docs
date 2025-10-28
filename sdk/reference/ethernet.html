@@ -353,6 +353,10 @@
   <section id="ethernet">
 <h1>Ethernet<a class="headerlink" href="#ethernet" title="Link to this heading">#</a></h1>
 <p>The Ethernet module provides a high-level interface for wired network connections with automatic DHCP handling and manual configuration options. It simplifies network management with clean access to connection status and network parameters.</p>
+<blockquote>
+<div><p>[!WARNING]
+The Ethernet class is available only if the hardware provides an active Ethernet interface.</p>
+</div></blockquote>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.ethernet</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ethernet</span>

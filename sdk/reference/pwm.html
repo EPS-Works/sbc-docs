@@ -359,7 +359,7 @@
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span><span class="p">,</span> <span class="n">PWM</span>
 
-<span class="n">dout</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">DigitalIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">dout</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;DOUT1&quot;</span><span class="p">)</span>
 <span class="n">pwm</span> <span class="o">=</span> <span class="n">PWM</span><span class="p">(</span><span class="n">dout</span><span class="p">)</span>
 
 <span class="c1"># Start PWM at 100Hz with 50% duty cycle</span>

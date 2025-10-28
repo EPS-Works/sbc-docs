@@ -344,6 +344,7 @@
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.close"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.read"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.read()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.readinto"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.readinto()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.write"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.write()</span></code></a></li>
@@ -374,28 +375,32 @@ The fixed size <strong>circular buffer</strong> wraps when it fills up, and new 
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">UART</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk.serial</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span>
 
-<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
-<span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">uart</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
+<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+<span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">uart</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 
-<span class="n">data</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cursor</span><span class="o">=</span><span class="s1">&#39;__cursor__&#39;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Received: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;__cursor1__&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cursor 1 data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">cursor</span><span class="o">=</span><span class="s2">&quot;__cursor2__&quot;</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Cursor 2 data: </span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Multiple cursors can be created to access the same serial from independent processes. These cursors use the same interface as the original serial port, making them interchangeable when injected into functions or classes.</p>
-<blockquote>
-<div><p>[!WARNING]
-Reading directly from the original serial after creating a buffer will result in race conditions and data loss. Always use buffer cursors whenever multiple access to the serial is required.</p>
-</div></blockquote>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">UART</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk.serial</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span>
 
-<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+<span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
 <span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">uart</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="mi">128</span><span class="p">)</span>
 
 <span class="n">decoder</span> <span class="o">=</span> <span class="n">SerialDecoder</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__reader__&#39;</span><span class="p">))</span>
 <span class="n">logger</span> <span class="o">=</span> <span class="n">DataLogger</span><span class="p">(</span><span class="n">source</span><span class="o">=</span><span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__logger__&#39;</span><span class="p">))</span>
 </pre></div>
 </div>
+<blockquote>
+<div><p>[!WARNING]
+Reading directly from the original serial after creating a buffer will result in race conditions and data loss. Always use buffer cursors whenever multiple access to the serial is required.</p>
+</div></blockquote>
 </section>
 <section id="module-sdk.serial">
 <span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.serial" title="Link to this heading">#</a></h2>
@@ -575,6 +580,19 @@ collected to prevent memory leaks.</p>
 </dd>
 </dl>
 <dl class="py method">
+<dt class="sig sig-object py" id="sdk.serial.SerialBufferCursor.close">
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.serial.SerialBufferCursor.close" title="Link to this definition">#</a></dt>
+<dd><p>Explicitly close the cursor and remove it from the buffer.</p>
+<p>This is the preferred way to clean up a cursor rather than
+relying on garbage collection.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Return type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="sdk.serial.SerialBufferCursor.read">
 <span class="sig-name descname"><span class="pre">read</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">nbytes</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.serial.SerialBufferCursor.read" title="Link to this definition">#</a></dt>
 <dd><p>Read data from the buffer starting at this cursor’s position.</p>
@@ -690,6 +708,7 @@ collected to prevent memory leaks.</p>
 </ul>
 </li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.close"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.close()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.read"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.read()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.readinto"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.readinto()</span></code></a></li>
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.serial.SerialBufferCursor.write"><code class="docutils literal notranslate"><span class="pre">SerialBufferCursor.write()</span></code></a></li>

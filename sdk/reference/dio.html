@@ -369,7 +369,7 @@
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.dio</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
 
-<span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">DigitalIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;DOUT1&quot;</span><span class="p">)</span>
 
 <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span>
 <span class="n">pin</span><span class="o">.</span><span class="n">toggle</span><span class="p">()</span>
@@ -378,7 +378,7 @@
 <section id="pin-modes">
 <h3>Pin Modes<a class="headerlink" href="#pin-modes" title="Link to this heading">#</a></h3>
 <p>Switch between input and output modes with automatic validation. The class prevents invalid operations like setting values on input pins.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="n">DigitalIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;DOUT1&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">DigitalIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
 
 <span class="n">pin</span><span class="o">.</span><span class="n">high</span><span class="p">()</span> <span class="c1"># Will raise an exception</span>
 
@@ -395,9 +395,9 @@ Multiple handlers can be registered to different events.</p>
 <div><p>[!WARNING]
 Use this with caution. Do not rely on <code class="docutils literal notranslate"><span class="pre">attach</span></code> for long blocking callbacks that run in ISR. More info about <a class="reference external" href="https://docs.micropython.org/en/latest/reference/isr_rules.html">writing interrupt handlers</a>.</p>
 </div></blockquote>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.io</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.dio</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
 
-<span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="mi">25</span><span class="p">,</span> <span class="n">DigitalIO</span><span class="o">.</span><span class="n">OUT</span><span class="p">)</span>
+<span class="n">pin</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;DOUT1&quot;</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_fall</span><span class="p">(</span><span class="n">pin</span><span class="p">):</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Falling edge detected&quot;</span><span class="p">)</span>
@@ -455,7 +455,7 @@ and supports multiple event handlers for rising, falling, and change events.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>pin</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+<li><p><strong>pin</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
 <li><p><strong>mode</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">Pin.OUT</span></code>)</p></li>
 <li><p><strong>pull</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
 </ul>

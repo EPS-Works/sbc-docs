@@ -328,7 +328,11 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imu-orientation">IMU orientation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imu-orientation">IMU orientation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-configuration">Mount Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-s-reference-frame-adjustment">Board’s Reference Frame Adjustment</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.bno08x">Class Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.bno08x.BNO08x"><code class="docutils literal notranslate"><span class="pre">BNO08x</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.bno08x.BNO08x.acceleration"><code class="docutils literal notranslate"><span class="pre">BNO08x.acceleration</span></code></a></li>
@@ -366,7 +370,7 @@
 
 <span class="n">i2c</span> <span class="o">=</span> <span class="n">I2C</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="n">freq</span><span class="o">=</span><span class="mi">400_000</span><span class="p">)</span>
 
-<span class="n">imu</span> <span class="o">=</span> <span class="n">BNO08x</span><span class="p">(</span><span class="n">i2c</span><span class="o">=</span><span class="n">i2c</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">imu</span> <span class="o">=</span> <span class="n">BNO08x</span><span class="p">(</span><span class="n">i2c</span><span class="o">=</span><span class="n">i2c</span><span class="p">)</span>
 <span class="n">imu</span><span class="o">.</span><span class="n">reset</span><span class="p">()</span>
 
 <span class="n">imu</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">BNO08x</span><span class="o">.</span><span class="n">STABILIZED_ROTATION</span><span class="p">)</span>
@@ -380,17 +384,25 @@
 </section>
 <section id="imu-orientation">
 <h2>IMU orientation<a class="headerlink" href="#imu-orientation" title="Link to this heading">#</a></h2>
-<p>The BNO08x class transforms sensor data to align with the board’s orientation based on the NED (North-East-Down) reference frame. The set_frame(x, y, z) method allows explicit configuration of the SBC’s installed axis directions. This enables accurate compensation for any physical mounting orientation of the board, ensuring that all output measurements are consistently referenced and precisely aligned regardless of installation.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules</span><span class="w"> </span><span class="kn">import</span> <span class="n">BNO08x</span><span class="p">,</span> <span class="n">Axes</span>
-
-<span class="c1"># BNO08x sensor is mounted on the board at 90deg on z from its own reference on the board</span>
-<span class="n">mounting_frame</span> <span class="o">=</span> <span class="n">Axes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
-<span class="n">imu</span> <span class="o">=</span> <span class="n">BNO08x</span><span class="p">(</span><span class="n">i2c</span><span class="o">=</span><span class="n">i2c</span><span class="p">,</span> <span class="n">reset</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">mount</span><span class="o">=</span><span class="n">mounting_frame</span><span class="p">)</span>
-
-<span class="c1"># The board is rotated -90deg on y from NED</span>
+<section id="mount-configuration">
+<h3>Mount Configuration<a class="headerlink" href="#mount-configuration" title="Link to this heading">#</a></h3>
+<p>The BNO08x constructor includes a mount parameter to defines how the IMU sensor is physically mounted on the board.
+By specifying the sensor’s orientation relative to the board’s reference axes, rotations are automatically compensated for correctly aligned readings.</p>
+<p>from sdk.modules.bno08x import BNO08x, Axes</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># BNO08x sensor mounted on the board rotated 90° around its Z-axis</span>
+<span class="n">mount</span> <span class="o">=</span> <span class="n">Axes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;N&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;W&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;U&#39;</span><span class="p">)</span>
+<span class="n">imu</span> <span class="o">=</span> <span class="n">BNO08x</span><span class="p">(</span><span class="n">i2c</span><span class="o">=</span><span class="n">i2c</span><span class="p">,</span> <span class="n">mount</span><span class="o">=</span><span class="n">mount</span><span class="p">)</span>
+</pre></div>
+</div>
+</section>
+<section id="board-s-reference-frame-adjustment">
+<h3>Board’s Reference Frame Adjustment<a class="headerlink" href="#board-s-reference-frame-adjustment" title="Link to this heading">#</a></h3>
+<p>The board’s global reference frame can be adjusted with the <code class="docutils literal notranslate"><span class="pre">set_frame(x,</span> <span class="pre">y,</span> <span class="pre">z)</span></code> method to account for installations that differ from the standard NED (North–East–Down) orientation, such as when the board is rotated, inverted, or mounted vertically.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="c1"># The board is rotated -90deg around the Y-axis relative to NED</span>
 <span class="n">imu</span><span class="o">.</span><span class="n">set_frame</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;D&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;E&#39;</span><span class="p">,</span> <span class="n">z</span><span class="o">=</span><span class="s1">&#39;S&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</section>
 </section>
 <section id="module-sdk.modules.bno08x">
 <span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.modules.bno08x" title="Link to this heading">#</a></h2>
@@ -531,7 +543,7 @@ is not available or the sensor is not activated.</p>
 <dl class="py property">
 <dt class="sig sig-object py" id="sdk.modules.bno08x.BNO08x.stabilized_rotation">
 <em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">stabilized_rotation</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#sdk.modules.bno08x.BNO08x.stabilized_rotation" title="Link to this definition">#</a></dt>
-<dd><p>Get the current stabilized rotatio quaternion data.</p>
+<dd><p>Get the current stabilized rotation quaternion data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A tuple of (w, x, y, z) quaternion values representing the stabilized rotation,
@@ -609,7 +621,11 @@ or a timeout occurs. The timeout duration is specified by the TIMEOUT constant.<
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imu-orientation">IMU orientation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#imu-orientation">IMU orientation</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#mount-configuration">Mount Configuration</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#board-s-reference-frame-adjustment">Board’s Reference Frame Adjustment</a></li>
+</ul>
+</li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.bno08x">Class Reference</a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.bno08x.BNO08x"><code class="docutils literal notranslate"><span class="pre">BNO08x</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.bno08x.BNO08x.acceleration"><code class="docutils literal notranslate"><span class="pre">BNO08x.acceleration</span></code></a></li>

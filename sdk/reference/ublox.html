@@ -355,14 +355,32 @@
 It extends the base GNSS interface to provide specific configuration and streaming control using the UBX protocol.</p>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.dio</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.xbee</span><span class="w"> </span><span class="kn">import</span> <span class="n">XBeeSocket</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
 
 <span class="c1"># Initialize Ublox receiver</span>
-<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;PWR_GNSS&quot;</span><span class="p">))</span>
+<span class="n">socket</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
 
-<span class="c1"># Configure message streaming</span>
-<span class="n">stop</span> <span class="o">=</span> <span class="n">gnss</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NAV-PVT&quot;</span><span class="p">,</span> <span class="s2">&quot;NAV-SAT&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># Optionally configure message streaming</span>
+<span class="n">gnss</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NAV-PVT&quot;</span><span class="p">,</span> <span class="s2">&quot;NAV-SAT&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">gnss</span><span class="o">.</span><span class="n">read</span><span class="p">():</span>
+        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>GNSS sockets other than main include dedicated power pins. You can manage power using the DigitalIO module:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.dio</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.xbee</span><span class="w"> </span><span class="kn">import</span> <span class="n">XBeeSocket</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
+
+<span class="c1"># Initialize Ublox receiver on GPS2 socket</span>
+<span class="n">power</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;PWR_GNSS&quot;</span><span class="p">)</span>
+<span class="n">socket</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">power</span><span class="p">)</span>
+<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
+
+<span class="n">gnss</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
 </pre></div>
 </div>
 </section>
@@ -370,18 +388,14 @@ It extends the base GNSS interface to provide specific configuration and streami
 <span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.modules.gnss.ublox" title="Link to this heading">#</a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ublox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">baudrate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">_BAUDRATE</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">power</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox" title="Link to this definition">#</a></dt>
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ublox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox" title="Link to this definition">#</a></dt>
 <dd><p>Controller for Ublox ZED-F9P GNSS receivers.</p>
 <p>This class extends the base GNSS interface to provide high-level configuration
 of UBX protocol messages and streaming behavior. It handles enabling and disabling
 message outputs on specified ports using UBX-CFG-VALSET commands.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>port</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
-<li><p><strong>baudrate</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">_BAUDRATE</span></code>)</p></li>
-<li><p><strong>power</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="dio.html#sdk.dio.DigitalIO" title="sdk.dio.DigitalIO"><code class="xref py py-class docutils literal notranslate"><span class="pre">DigitalIO</span></code></a> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
-</ul>
+<dd class="field-odd"><p><strong>socket</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">XBeeSocket</span></code></span>)</p>
 </dd>
 </dl>
 <dl class="py method">

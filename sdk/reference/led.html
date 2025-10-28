@@ -362,7 +362,7 @@
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.led</span><span class="w"> </span><span class="kn">import</span> <span class="n">Led</span>
 
-<span class="n">led</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="mi">25</span><span class="p">)</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;LEDGREEN&quot;</span><span class="p">)</span>
 
 <span class="n">led</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
 <span class="n">led</span><span class="o">.</span><span class="n">off</span><span class="p">()</span>
@@ -390,13 +390,13 @@
 <p>Combine with event callbacks for reactive lighting</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Led</span><span class="p">,</span> <span class="n">DigitalIO</span>
 
-<span class="n">led</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
-<span class="n">button</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">DigitalIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
+<span class="n">led</span> <span class="o">=</span> <span class="n">Led</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;LEDGREEN&quot;</span><span class="p">)</span>
+<span class="n">button</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;DOUT1&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="n">DigitalIO</span><span class="o">.</span><span class="n">IN</span><span class="p">)</span>
 
 <span class="k">def</span><span class="w"> </span><span class="nf">on_press</span><span class="p">(</span><span class="n">_</span><span class="p">):</span>
     <span class="n">led</span><span class="o">.</span><span class="n">blink</span><span class="p">(</span><span class="n">period</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="n">times</span><span class="o">=</span><span class="mi">2</span><span class="p">)</span>
 
-<span class="n">button</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">DigitalIO</span><span class="o">.</span><span class="n">FALLING</span><span class="p">,</span> <span class="n">callback</span><span class="o">=</span><span class="n">on_press</span><span class="p">)</span>
+<span class="n">button</span><span class="o">.</span><span class="n">attach</span><span class="p">(</span><span class="n">trigger</span><span class="o">=</span><span class="n">DigitalIO</span><span class="o">.</span><span class="n">FALLING</span><span class="p">,</span> <span class="n">handler</span><span class="o">=</span><span class="n">on_press</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -411,7 +411,7 @@ and pattern generation. It ensures safe pin configuration and prevents mode chan
 that could damage the LED or circuit.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>pin</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p>
+<dd class="field-odd"><p><strong>pin</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p>
 </dd>
 </dl>
 <dl class="py method">

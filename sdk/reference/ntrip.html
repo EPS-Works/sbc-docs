@@ -362,7 +362,7 @@
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">machine</span><span class="w"> </span><span class="kn">import</span> <span class="n">UART</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.serial</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk.ntrip</span><span class="w"> </span><span class="kn">import</span> <span class="n">NTRIPClient</span><span class="p">,</span> <span class="n">NTRIPBridge</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">create_task</span><span class="p">,</span> <span class="n">sleep</span>
 
@@ -378,7 +378,7 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Main application&quot;&quot;&quot;</span>
 
     <span class="c1"># Create a buffer cursor for concurrent UART reads</span>
-    <span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
+    <span class="n">uart</span> <span class="o">=</span> <span class="n">UART</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
     <span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">uart</span><span class="p">)</span>
     <span class="n">cursor</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__ntrip__&#39;</span><span class="p">)</span>
 

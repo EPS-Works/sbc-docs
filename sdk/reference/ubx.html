@@ -384,27 +384,27 @@
 <p>The UBX class provides capabilities for parsing, validating, and working with UBX messages from GNSS/GPS devices.</p>
 <blockquote>
 <div><p>[!TIP]
-For typical usage, the UBX parser integrates directly with the <a class="reference internal" href="#../stream.md"><span class="xref myst">Stream</span></a> class that automatically handles message framing, checksum validation, and parsing, delivering ready-to-use UBX message objects.</p>
+For typical usage, the UBX parser integrates directly with the <strong>Stream</strong> class that automatically handles message framing, checksum validation, and parsing, delivering ready-to-use UBX message objects.</p>
 </div></blockquote>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">UBX</span>
 
-<span class="n">PVT</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x07\x02\x19\n\x17\xb5</span><span class="s2">b</span><span class="se">\x05</span><span class="s2">...&quot;</span>
+<span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x07\x02\x19\n\x17\xb5</span><span class="s2">b</span><span class="se">\x05</span><span class="s2">...&quot;</span>
 
 <span class="n">UBX</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s1">&#39;NAV-PVT&#39;</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="n">UBX</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">PVT</span><span class="p">):</span>
-    <span class="n">pvt</span> <span class="o">=</span> <span class="n">UBX</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">PVT</span><span class="p">)</span>
+<span class="k">if</span> <span class="n">UBX</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
+    <span class="n">pvt</span> <span class="o">=</span> <span class="n">UBX</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lat: </span><span class="si">{</span><span class="n">pvt</span><span class="o">.</span><span class="n">lat</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">  Lon:</span><span class="si">{</span><span class="n">pvt</span><span class="o">.</span><span class="n">lon</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 <blockquote>
 <div><p>[!WARNING]
-To reduce memory footprint, messages are not available by default and must be activated lazily using the <code class="docutils literal notranslate"><span class="pre">UBX.activate()</span></code> method.</p>
+To reduce memory footprint, messages are not available by default and must be lazily activated using the <code class="docutils literal notranslate"><span class="pre">UBX.activate()</span></code> method.</p>
 </div></blockquote>
 <p>The parser includes built-in support for essential UBX messages including <strong>ACK-ACK</strong>, <strong>ACK-NAK</strong>, <strong>MON-MSGPP</strong>, <strong>MON-VER</strong>, <strong>NAV-CLOCK</strong>, <strong>NAV-COV</strong>, <strong>NAV-DOP</strong>, <strong>NAV-EOE</strong>, <strong>NAV-GEOFENCE</strong>, <strong>NAV-HPPOSECEF</strong>, <strong>NAV-HPPOSLLH</strong>, <strong>NAV-ODO</strong>, <strong>NAV-PVT</strong>, <strong>NAV-RELPOSNED</strong>, <strong>NAV-SAT</strong>, <strong>NAV-SIG</strong>, <strong>NAV-STATUS</strong>, <strong>NAV-SVIN</strong>, <strong>NAV-TIMEGPS</strong>, <strong>NAV-TIMEUTC</strong>, <strong>NAV-VELECEF</strong>, <strong>NAV-VELNED</strong>, <strong>RXM-RAWX</strong>, <strong>RXM-RTCM</strong>, <strong>RXM-SFRBX</strong>, <strong>TIM-TM2</strong>, <strong>UBX-CFG-VALSET</strong>, and <strong>UBX-CFG-VALDEL</strong>.</p>
-<p>Additional message types can be easily registered when needed allowing extensibility while keeping the parser’s core lightweight. Registered messages are automatically activated.</p>
+<p>Additional message types can be easily registered when needed, allowing extensibility while keeping the parser’s core lightweight. Registered messages are automatically activated.</p>
 <p>Each UBX message type is defined by its name, class id, message id and fields (name and format).</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.ubx</span><span class="w"> </span><span class="kn">import</span> <span class="n">UBX</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">Format</span>
 
@@ -572,7 +572,10 @@ checksum validation and proper message framing.</p>
 <dd><p>Activate the UBX message with the given name.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>name</strong> – The name of the UBX message to activate.</p>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>name</strong> – The name of the UBX message to activate.</p></li>
+<li><p><strong>names</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
+</ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
 <dd class="field-even"><p><strong>ValueError</strong> – If the message name is not supported.</p>

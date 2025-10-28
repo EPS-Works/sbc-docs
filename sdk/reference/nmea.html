@@ -396,8 +396,8 @@ For typical usage, the NMEA parser integrates directly with the <a class="refere
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lat: </span><span class="si">{</span><span class="n">gga</span><span class="o">.</span><span class="n">lat</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">  Lon:</span><span class="si">{</span><span class="n">gga</span><span class="o">.</span><span class="n">lon</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
-<p>The parser includes built-in support for essential NMEA messages including <strong>GGA</strong>, <strong>GLL</strong>, <strong>RMC</strong>, <strong>GSV</strong>, <strong>GSA</strong>, and <strong>GST</strong>. Additional message types can be easily registered when needed allowing extensibility while keeping the parser’s core lightweight.</p>
-<p>Each NMEA message type is defined by its fields (name, type, and parsing rules) and an optional custom parser for complex formats. The Field class specifies each data element with these parameters:</p>
+<p>The parser includes built-in support for essential NMEA messages including <strong>GGA</strong>, <strong>GLL</strong>, <strong>RMC</strong>, <strong>GSV</strong>, <strong>GSA</strong>, and <strong>GST</strong>. Additional message types can be easily registered when needed, allowing extensibility while keeping the parser’s core lightweight.</p>
+<p>Each NMEA message type is defined by its fields (name, type, and parsing rules) and an optional custom parser for complex formats. The Field class specifies each data element with the following parameters:</p>
 <ul class="simple">
 <li><p><strong>name</strong>: The field’s key in the parsed output</p></li>
 <li><p><strong>type</strong>: The expected Python type (e.g., <em>float</em>, <em>str</em>)</p></li>
@@ -407,7 +407,7 @@ For typical usage, the NMEA parser integrates directly with the <a class="refere
 
 <span class="n">NMEA</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">msg_id</span><span class="o">=</span><span class="s1">&#39;ROT&#39;</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span>
     <span class="n">Field</span><span class="p">(</span><span class="s1">&#39;rate_turn&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
-    <span class="n">Field</span><span class="p">(</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="k">lambda</span> <span class="n">v</span><span class="p">:</span> <span class="n">v</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span>
+    <span class="n">Field</span><span class="p">(</span><span class="s1">&#39;valid&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="k">lambda</span> <span class="n">value</span><span class="p">:</span> <span class="n">value</span> <span class="o">==</span> <span class="s1">&#39;A&#39;</span><span class="p">),</span>
 <span class="p">])</span>
 </pre></div>
 </div>

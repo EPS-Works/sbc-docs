@@ -397,19 +397,18 @@
 <p>Files can be handled using a context manager or a decorator. Both methods ensure proper resource management while providing flexibility in structuring your file operations.</p>
 <p>The context manager provides direct file access with automatic cleanup, working like Python’s built-in open() but with storage-relative paths.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">with</span> <span class="n">storage</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="s1">&#39;logs/20250523.log&#39;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">logfile</span><span class="p">:</span>
-    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">logfile</span><span class="o">.</span><span class="n">readline</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">logfile</span><span class="o">.</span><span class="n">readlines</span><span class="p">():</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">line</span><span class="p">)</span>
 
 <span class="n">storage</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="s1">&#39;logs/20250523.log&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>The decorator pattern wraps functions to automatically manage files, passing the open file as an argument while handling all cleanup.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@storage</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s1">&#39;config.toml&#39;</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">save_config</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">IO</span><span class="p">,</span> <span class="n">settings</span><span class="p">:</span> <span class="n">Dict</span><span class="p">):</span>
-    <span class="n">settings</span> <span class="o">=</span> <span class="n">toml</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
-    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">settings</span><span class="p">)</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@storage</span><span class="o">.</span><span class="n">file</span><span class="p">(</span><span class="s1">&#39;errors.log&#39;</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">log_error_file</span><span class="p">(</span><span class="n">file</span><span class="p">:</span> <span class="n">IO</span><span class="p">,</span> <span class="n">data</span><span class="p">:</span> <span class="nb">str</span><span class="p">):</span>
+    <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">data</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
-<span class="n">save_config</span><span class="p">({</span><span class="s2">&quot;interval&quot;</span><span class="p">:</span> <span class="mi">30</span><span class="p">,</span> <span class="s2">&quot;units&quot;</span><span class="p">:</span> <span class="s2">&quot;celsius&quot;</span><span class="p">})</span>
+<span class="n">log_error_file</span><span class="p">(</span><span class="s2">&quot;Something&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
