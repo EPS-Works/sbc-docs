@@ -6,12 +6,12 @@ This script sets up an asynchronous handler to process NMEA GGA messages from a 
 ```python
 from sbc import GNSS1
 from sdk import Stream, SerialBuffer
-from sdk.parsers import NMEA
+from sdk.parsers.nmea import Parser
 from asyncio import sleep, create_task, run
 
 async def handle_gga(cursor):
-    with Stream(cursor, parsers=[NMEA]) as stream:
-        async for msg in stream:
+    with Stream(cursor, parsers=[Parser()]) as stream:
+        async for msg in stream:  # msg is an NMEA instance here
             print(msg.lat, msg.lon, msg.fix)
 
 async def main():
@@ -22,7 +22,6 @@ async def main():
 
     while True:
         # Your magic here... 🎉
-
         await sleep(5)
 
 run(main())
