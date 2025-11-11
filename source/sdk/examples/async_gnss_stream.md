@@ -16,17 +16,16 @@ async def handle_gga(cursor):
 
 async def main():
     GNSS1.stream(messages=['GGA'], port=1)
-    
+
     buffer = SerialBuffer(GNSS1)
     create_task(handle_gga(buffer.cursor('__gga__')))
 
     while True:
         # Your magic here... 🎉
-        
+
         await sleep(5)
 
-if __name__ == '__main__':
-    run(main())
+run(main())
 ```
 
 ```{eval-rst}
