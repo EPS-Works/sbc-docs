@@ -65,12 +65,12 @@ Board modules provide hardware instances, but you can still use SDK classes for 
 ```python
 from sbc import GNSS1
 from sdk import SerialBuffer, Stream
-from sdk.parsers import NMEAParser
+from sdk.parsers.nmea import Parser
 
 # Use board hardware with SDK utilities
 buffer = SerialBuffer(GNSS1)
 cursor = buffer.cursor('__stream__');
-with Stream(serial=cursor, parsers=[NMEAParser()]) as stream:
+with Stream(serial=cursor, parsers=[Parser()]) as stream:
     for message in stream:
         print(message)
 ```

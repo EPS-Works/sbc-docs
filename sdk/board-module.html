@@ -399,12 +399,12 @@
 <p>Board modules provide hardware instances, but you can still use SDK classes for additional functionality.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span><span class="p">,</span> <span class="n">Stream</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">NMEAParser</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.nmea</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parser</span>
 
 <span class="c1"># Use board hardware with SDK utilities</span>
 <span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">GNSS1</span><span class="p">)</span>
 <span class="n">cursor</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__stream__&#39;</span><span class="p">);</span>
-<span class="k">with</span> <span class="n">Stream</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">cursor</span><span class="p">,</span> <span class="n">parsers</span><span class="o">=</span><span class="p">[</span><span class="n">NMEAParser</span><span class="p">()])</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+<span class="k">with</span> <span class="n">Stream</span><span class="p">(</span><span class="n">serial</span><span class="o">=</span><span class="n">cursor</span><span class="p">,</span> <span class="n">parsers</span><span class="o">=</span><span class="p">[</span><span class="n">Parser</span><span class="p">()])</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
     <span class="k">for</span> <span class="n">message</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
         <span class="nb">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
 </pre></div>

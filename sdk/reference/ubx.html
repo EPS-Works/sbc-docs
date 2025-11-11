@@ -333,44 +333,25 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.parsers.ubx">Class Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field.format"><code class="docutils literal notranslate"><span class="pre">Field.format</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field.name"><code class="docutils literal notranslate"><span class="pre">Field.name</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-custom-messages">Registering custom messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.parsers.ubx.ubx">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX"><code class="docutils literal notranslate"><span class="pre">UBX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.checksum"><code class="docutils literal notranslate"><span class="pre">UBX.checksum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.is_valid"><code class="docutils literal notranslate"><span class="pre">UBX.is_valid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.parse"><code class="docutils literal notranslate"><span class="pre">UBX.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.register"><code class="docutils literal notranslate"><span class="pre">UBX.register()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.serialize"><code class="docutils literal notranslate"><span class="pre">UBX.serialize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.validate"><code class="docutils literal notranslate"><span class="pre">UBX.validate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.wrap"><code class="docutils literal notranslate"><span class="pre">UBX.wrap()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Format"><code class="docutils literal notranslate"><span class="pre">Format</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.fields"><code class="docutils literal notranslate"><span class="pre">Message.fields</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.parse"><code class="docutils literal notranslate"><span class="pre">Message.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.serialize"><code class="docutils literal notranslate"><span class="pre">Message.serialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.find"><code class="docutils literal notranslate"><span class="pre">Parser.find()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.parse"><code class="docutils literal notranslate"><span class="pre">Parser.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.process"><code class="docutils literal notranslate"><span class="pre">Parser.process()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.reset"><code class="docutils literal notranslate"><span class="pre">Parser.reset()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat"><code class="docutils literal notranslate"><span class="pre">Repeat</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat.parse"><code class="docutils literal notranslate"><span class="pre">Repeat.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat.serialize"><code class="docutils literal notranslate"><span class="pre">Repeat.serialize()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX"><code class="docutils literal notranslate"><span class="pre">UBX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.activate"><code class="docutils literal notranslate"><span class="pre">UBX.activate()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.checksum"><code class="docutils literal notranslate"><span class="pre">UBX.checksum()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.is_valid"><code class="docutils literal notranslate"><span class="pre">UBX.is_valid()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.parse"><code class="docutils literal notranslate"><span class="pre">UBX.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.register"><code class="docutils literal notranslate"><span class="pre">UBX.register()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.serialize"><code class="docutils literal notranslate"><span class="pre">UBX.serialize()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.validate"><code class="docutils literal notranslate"><span class="pre">UBX.validate()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.wrap"><code class="docutils literal notranslate"><span class="pre">UBX.wrap()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser"><code class="docutils literal notranslate"><span class="pre">UBXParser</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.find"><code class="docutils literal notranslate"><span class="pre">UBXParser.find()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.parse"><code class="docutils literal notranslate"><span class="pre">UBXParser.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.process"><code class="docutils literal notranslate"><span class="pre">UBXParser.process()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.reset"><code class="docutils literal notranslate"><span class="pre">UBXParser.reset()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.chunk"><code class="docutils literal notranslate"><span class="pre">chunk()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.group_by"><code class="docutils literal notranslate"><span class="pre">group_by()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -393,175 +374,44 @@ For typical usage, the UBX parser integrates directly with the <strong>Stream</s
 </div></blockquote>
 <section id="basic-usage">
 <h2>Basic usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">UBX</span>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.ubx</span><span class="w"> </span><span class="kn">import</span> <span class="n">UBX</span><span class="p">,</span> <span class="n">Parser</span>
 
+<span class="c1"># Parse UBX messages</span>
 <span class="n">data</span> <span class="o">=</span> <span class="sa">b</span><span class="s2">&quot;</span><span class="se">\x07\x02\x19\n\x17\xb5</span><span class="s2">b</span><span class="se">\x05</span><span class="s2">...&quot;</span>
-
-<span class="n">UBX</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="s1">&#39;NAV-PVT&#39;</span><span class="p">)</span>
-
 <span class="k">if</span> <span class="n">UBX</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">data</span><span class="p">):</span>
     <span class="n">pvt</span> <span class="o">=</span> <span class="n">UBX</span><span class="o">.</span><span class="n">parse</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Lat: </span><span class="si">{</span><span class="n">pvt</span><span class="o">.</span><span class="n">lat</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">  Lon:</span><span class="si">{</span><span class="n">pvt</span><span class="o">.</span><span class="n">lon</span><span class="si">:</span><span class="s2">.6f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Stream processing</span>
+<span class="n">parser</span> <span class="o">=</span> <span class="n">Parser</span><span class="p">(</span><span class="n">callback</span><span class="o">=</span><span class="k">lambda</span> <span class="n">msg</span><span class="p">:</span> <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">name</span><span class="p">))</span>
+<span class="k">while</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">reader</span><span class="o">.</span><span class="n">read</span><span class="p">():</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
 </pre></div>
 </div>
-<blockquote>
-<div><p>[!WARNING]
-To reduce memory footprint, messages are not available by default and must be lazily activated using the <code class="docutils literal notranslate"><span class="pre">UBX.activate()</span></code> method.</p>
-</div></blockquote>
 <p>The parser includes built-in support for essential UBX messages including <strong>ACK-ACK</strong>, <strong>ACK-NAK</strong>, <strong>MON-MSGPP</strong>, <strong>MON-VER</strong>, <strong>NAV-CLOCK</strong>, <strong>NAV-COV</strong>, <strong>NAV-DOP</strong>, <strong>NAV-EOE</strong>, <strong>NAV-GEOFENCE</strong>, <strong>NAV-HPPOSECEF</strong>, <strong>NAV-HPPOSLLH</strong>, <strong>NAV-ODO</strong>, <strong>NAV-PVT</strong>, <strong>NAV-RELPOSNED</strong>, <strong>NAV-SAT</strong>, <strong>NAV-SIG</strong>, <strong>NAV-STATUS</strong>, <strong>NAV-SVIN</strong>, <strong>NAV-TIMEGPS</strong>, <strong>NAV-TIMEUTC</strong>, <strong>NAV-VELECEF</strong>, <strong>NAV-VELNED</strong>, <strong>RXM-RAWX</strong>, <strong>RXM-RTCM</strong>, <strong>RXM-SFRBX</strong>, <strong>TIM-TM2</strong>, <strong>UBX-CFG-VALSET</strong>, and <strong>UBX-CFG-VALDEL</strong>.</p>
-<p>Additional message types can be easily registered when needed, allowing extensibility while keeping the parser’s core lightweight. Registered messages are automatically activated.</p>
-<p>Each UBX message type is defined by its name, class id, message id and fields (name and format).</p>
+</section>
+<section id="registering-custom-messages">
+<h2>Registering custom messages<a class="headerlink" href="#registering-custom-messages" title="Link to this heading">#</a></h2>
+<p>Additional message types can be easily registered when needed. All messages are automatically available after registration.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.ubx</span><span class="w"> </span><span class="kn">import</span> <span class="n">UBX</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">Format</span>
 
-<span class="n">UBX</span><span class="o">.</span><span class="n">register</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;ACK-ACK&quot;</span><span class="p">,</span> <span class="bp">cls</span><span class="o">=</span><span class="mh">0x05</span><span class="p">,</span> <span class="n">msg_id</span><span class="o">=</span><span class="mh">0x01</span><span class="p">,</span> <span class="n">fields</span><span class="o">=</span><span class="p">[</span>
-    <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;clsId&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">Format</span><span class="o">.</span><span class="n">U1</span><span class="p">),</span>
-    <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;msgId&quot;</span><span class="p">,</span> <span class="nb">format</span><span class="o">=</span><span class="n">Format</span><span class="o">.</span><span class="n">U1</span><span class="p">),</span>
-<span class="p">])</span>
+<span class="n">UBX</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+    <span class="n">name</span><span class="o">=</span><span class="s2">&quot;CUSTOM-MSG&quot;</span><span class="p">,</span>
+    <span class="n">class_id</span><span class="o">=</span><span class="mh">0x27</span><span class="p">,</span>
+    <span class="n">msg_id</span><span class="o">=</span><span class="mh">0x4F</span><span class="p">,</span>
+    <span class="n">fields</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;timestamp&quot;</span><span class="p">,</span> <span class="n">Format</span><span class="o">.</span><span class="n">U4</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="s2">&quot;value&quot;</span><span class="p">,</span> <span class="n">Format</span><span class="o">.</span><span class="n">R8</span><span class="p">),</span>
+    <span class="p">]</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="module-sdk.parsers.ubx">
-<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.parsers.ubx" title="Link to this heading">#</a></h2>
+<section id="module-sdk.parsers.ubx.ubx">
+<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.parsers.ubx.ubx" title="Link to this heading">#</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Field">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Field</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">format</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.Field" title="Link to this definition">#</a></dt>
-<dd><dl class="py attribute">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Field.format">
-<span class="sig-name descname"><span class="pre">format</span></span><a class="headerlink" href="#sdk.parsers.ubx.Field.format" title="Link to this definition">#</a></dt>
-<dd><p>Alias for field number 1</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Field.name">
-<span class="sig-name descname"><span class="pre">name</span></span><a class="headerlink" href="#sdk.parsers.ubx.Field.name" title="Link to this definition">#</a></dt>
-<dd><p>Alias for field number 0</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Format">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Format</span></span><a class="headerlink" href="#sdk.parsers.ubx.Format" title="Link to this definition">#</a></dt>
-<dd><p>Format specifiers for binary data packing and unpacking.</p>
-<p>This class provides format specifiers for various data types used in UBX messages,
-including integers, floats, strings, and padding bytes.</p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Message">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Message</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">firm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.Message" title="Link to this definition">#</a></dt>
-<dd><p>Defines the format and structure of a UBX message.</p>
-<p>This class handles the binary format of UBX messages, including fixed and
-repeated fields, and provides methods for parsing and serializing message data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>firm</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>)</p></li>
-<li><p><strong>fields</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#sdk.parsers.ubx.Field" title="sdk.parsers.ubx.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a> | <a class="reference internal" href="#sdk.parsers.ubx.Repeat" title="sdk.parsers.ubx.Repeat"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repeat</span></code></a>]</span>)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py property">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Message.fields">
-<em class="property"><span class="k"><span class="pre">property</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">fields</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#sdk.parsers.ubx.Field" title="sdk.parsers.ubx.Field"><span class="pre">Field</span></a><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><a class="reference internal" href="#sdk.parsers.ubx.Repeat" title="sdk.parsers.ubx.Repeat"><span class="pre">Repeat</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#sdk.parsers.ubx.Message.fields" title="Link to this definition">#</a></dt>
-<dd><p>Get all fields in the message in their defined order.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of Field and Repeat objects in the order they appear in the message.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Message.parse">
-<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Dict</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.Message.parse" title="Link to this definition">#</a></dt>
-<dd><p>Parse a UBX message payload into structured data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>payload</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – Byte sequence containing the message data.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>]</span></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Dictionary mapping field names to their parsed values. Repeated fields
-are represented as lists of named tuples.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Message.serialize">
-<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">obj</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.Message.serialize" title="Link to this definition">#</a></dt>
-<dd><p>Serialize structured data into a UBX message payload.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>obj</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Dict</span></code></span>) – Dictionary mapping field names to their values.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Byte sequence containing the serialized message data.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Repeat">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Repeat</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.Repeat" title="Link to this definition">#</a></dt>
-<dd><p>Represents a repeated field in a UBX message format.</p>
-<p>This class handles variable-length repeated fields in UBX messages, providing
-methods for parsing and serializing arrays of structured data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
-<li><p><strong>fields</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#sdk.parsers.ubx.Field" title="sdk.parsers.ubx.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a>]</span>)</p></li>
-</ul>
-</dd>
-</dl>
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Repeat.parse">
-<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">List</span><span class="p"><span class="pre">[</span></span><span class="pre">NamedTuple</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.Repeat.parse" title="Link to this definition">#</a></dt>
-<dd><p>Parse a byte sequence into a list of structured data.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>payload</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – Byte sequence containing the repeated field data.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>]</span></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>List of named tuples, each representing one repetition of the field.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.Repeat.serialize">
-<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.Repeat.serialize" title="Link to this definition">#</a></dt>
-<dd><p>Serialize a list of structured data into a byte sequence.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">NamedTuple</span></code>]</span>) – List of named tuples to serialize.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Byte sequence containing the serialized repeated field data.</p>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UBX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.UBX" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UBX</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX" title="Link to this definition">#</a></dt>
 <dd><p>UBX protocol message parser and generator.</p>
 <p>This class implements the UBX protocol parser interface, providing methods
 for finding, validating, and parsing UBX messages. It supports message
@@ -572,28 +422,8 @@ checksum validation and proper message framing.</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.activate">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">activate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">names</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.activate" title="Link to this definition">#</a></dt>
-<dd><p>Activate the UBX message with the given name.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>name</strong> – The name of the UBX message to activate.</p></li>
-<li><p><strong>names</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>)</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>ValueError</strong> – If the message name is not supported.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.checksum">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.checksum" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.checksum">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">checksum</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.checksum" title="Link to this definition">#</a></dt>
 <dd><p>Calculates the UBX checksum for the given data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -609,8 +439,8 @@ checksum validation and proper message framing.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.is_valid">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.is_valid" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.is_valid">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">is_valid</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.is_valid" title="Link to this definition">#</a></dt>
 <dd><p>Check if the given UBX message is valid.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -626,8 +456,8 @@ checksum validation and proper message framing.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.parse">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sdk.parsers.ubx.UBX" title="sdk.parsers.ubx.UBX"><span class="pre">UBX</span></a></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.parse" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.parse">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">validate</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sdk.parsers.ubx.ubx.UBX" title="sdk.parsers.ubx.ubx.UBX"><span class="pre">UBX</span></a></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.parse" title="Link to this definition">#</a></dt>
 <dd><p>Parse a UBX message from bytes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -637,7 +467,7 @@ checksum validation and proper message framing.</p>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.parsers.ubx.UBX" title="sdk.parsers.ubx.UBX"><code class="xref py py-class docutils literal notranslate"><span class="pre">UBX</span></code></a></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.parsers.ubx.ubx.UBX" title="sdk.parsers.ubx.ubx.UBX"><code class="xref py py-class docutils literal notranslate"><span class="pre">UBX</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A UBX message instance parsed from the given data.</p>
@@ -652,8 +482,8 @@ checksum validation and proper message framing.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.register">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.register" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.register">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">register</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">class_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">msg_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">fields</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.register" title="Link to this definition">#</a></dt>
 <dd><p>Register a new UBX message type.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -661,7 +491,7 @@ checksum validation and proper message framing.</p>
 <li><p><strong>name</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code></span>) – Message identifier (e.g., “NAV-PVT”).</p></li>
 <li><p><strong>class_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Message class ID.</p></li>
 <li><p><strong>msg_id</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Message ID within the class.</p></li>
-<li><p><strong>fields</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<a class="reference internal" href="#sdk.parsers.ubx.Field" title="sdk.parsers.ubx.Field"><code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code></a> | <a class="reference internal" href="#sdk.parsers.ubx.Repeat" title="sdk.parsers.ubx.Repeat"><code class="xref py py-class docutils literal notranslate"><span class="pre">Repeat</span></code></a>]</span>) – List of Field or Repeat objects defining the message structure.</p></li>
+<li><p><strong>fields</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">Field</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">Repeat</span></code>]]</span>) – List of Field or Repeat objects defining the message structure.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -674,8 +504,8 @@ checksum validation and proper message framing.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.serialize">
-<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.serialize" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.serialize">
+<span class="sig-name descname"><span class="pre">serialize</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.serialize" title="Link to this definition">#</a></dt>
 <dd><p>Serialize the UBX message instance into a byte sequence.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Return type<span class="colon">:</span></dt>
@@ -689,8 +519,8 @@ byte sequence if the message format is not found.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.validate">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.validate" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.validate">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.validate" title="Link to this definition">#</a></dt>
 <dd><p>Validates the given UBX message.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -706,8 +536,8 @@ byte sequence if the message format is not found.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBX.wrap">
-<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBX.wrap" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.ubx.UBX.wrap">
+<em class="property"><span class="k"><span class="pre">classmethod</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">wrap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">payload</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.ubx.UBX.wrap" title="Link to this definition">#</a></dt>
 <dd><p>Wrap the given payload into a UBX message.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -727,23 +557,28 @@ byte sequence if the message format is not found.</p>
 
 </dd></dl>
 
-<dl class="py class">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBXParser">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">UBXParser</span></span><a class="headerlink" href="#sdk.parsers.ubx.UBXParser" title="Link to this definition">#</a></dt>
+<dl class="py class" id="module-sdk.parsers.ubx.parser">
+<dt class="sig sig-object py" id="sdk.parsers.ubx.parser.Parser">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Parser</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">callback</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.parsers.ubx.parser.Parser" title="Link to this definition">#</a></dt>
 <dd><p>Stateful parser for streaming UBX data.</p>
 <p>This class extends a generic Parser and implements a state machine to parse incoming
 bytes from a data stream into complete UBX sentences. It handles validation, buffering,
 and extraction of structured message data from valid sentences.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>callback</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<a class="reference internal" href="#sdk.parsers.ubx.ubx.UBX" title="sdk.parsers.ubx.ubx.UBX"><code class="xref py py-class docutils literal notranslate"><span class="pre">UBX</span></code></a>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p>
+</dd>
+</dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBXParser.find">
-<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBXParser.find" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.parser.Parser.find">
+<span class="sig-name descname"><span class="pre">find</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">None</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">int</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.parser.Parser.find" title="Link to this definition">#</a></dt>
 <dd><p>Find the first UBX message in the given data.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The data to search for a UBX message.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>], <code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A tuple containing the first UBX message found in the data and the position of
@@ -753,15 +588,15 @@ the message in the data, or both None if no message is found.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBXParser.parse">
-<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sdk.parsers.ubx.UBX" title="sdk.parsers.ubx.UBX"><span class="pre">UBX</span></a></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBXParser.parse" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.parser.Parser.parse">
+<span class="sig-name descname"><span class="pre">parse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#sdk.parsers.ubx.ubx.UBX" title="sdk.parsers.ubx.ubx.UBX"><span class="pre">UBX</span></a></span></span><a class="headerlink" href="#sdk.parsers.ubx.parser.Parser.parse" title="Link to this definition">#</a></dt>
 <dd><p>Parse binary data into a structured object.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – Binary data to parse.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.parsers.ubx.UBX" title="sdk.parsers.ubx.UBX"><code class="xref py py-class docutils literal notranslate"><span class="pre">UBX</span></code></a></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="#sdk.parsers.ubx.ubx.UBX" title="sdk.parsers.ubx.ubx.UBX"><code class="xref py py-class docutils literal notranslate"><span class="pre">UBX</span></code></a></span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>Parsed data in an implementation-specific format.</p>
@@ -770,8 +605,8 @@ the message in the data, or both None if no message is found.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBXParser.process">
-<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBXParser.process" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.parser.Parser.process">
+<span class="sig-name descname"><span class="pre">process</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bytes</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.parser.Parser.process" title="Link to this definition">#</a></dt>
 <dd><p>Process and accumulate data bytes to form a complete UBX message.</p>
 <p>This method appends incoming data bytes to the current message buffer,
 resetting the buffer when a start delimiter is encountered. It
@@ -782,7 +617,7 @@ checksum is detected or the maximum message length is exceeded.</p>
 <dd class="field-odd"><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – The incoming data byte to be processed.</p>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>The complete UBX message as bytes if a valid message is formed,
@@ -792,8 +627,8 @@ otherwise None.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.UBXParser.reset">
-<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.UBXParser.reset" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.parsers.ubx.parser.Parser.reset">
+<span class="sig-name descname"><span class="pre">reset</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.parsers.ubx.parser.Parser.reset" title="Link to this definition">#</a></dt>
 <dd><p>Reset the parser state.</p>
 <p>Resets the parser state to its initial state and clears any partial
 message data. This method is called automatically when a valid message
@@ -805,47 +640,6 @@ is parsed or when the parser is initialized.</p>
 </dl>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.chunk">
-<span class="sig-name descname"><span class="pre">chunk</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Generator</span><span class="p"><span class="pre">[</span></span><span class="pre">bytes</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.chunk" title="Link to this definition">#</a></dt>
-<dd><p>Split a byte sequence into fixed-size chunks.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code></span>) – The byte sequence to split.</p></li>
-<li><p><strong>size</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>) – Size of each chunk in bytes.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Yields<span class="colon">:</span></dt>
-<dd class="field-even"><p>Chunks of the specified size. The last chunk may be smaller if the data
-length is not a multiple of the chunk size.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Generator</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>, <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py function">
-<dt class="sig sig-object py" id="sdk.parsers.ubx.group_by">
-<span class="sig-name descname"><span class="pre">group_by</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">iterable</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">condition</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">List</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">List</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.parsers.ubx.group_by" title="Link to this definition">#</a></dt>
-<dd><p>Split an iterable into two lists based on a condition.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>iterable</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">Iterable</span></code></span>) – The iterable to split.</p></li>
-<li><p><strong>condition</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-class docutils literal notranslate"><span class="pre">bool</span></code>]</span>) – Function that evaluates each item and returns a boolean.</p></li>
-</ul>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>items that satisfy the condition and items that don’t.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>Tuple containing two lists</p>
-</dd>
-</dl>
 </dd></dl>
 
 </section>
@@ -898,44 +692,25 @@ length is not a multiple of the chunk size.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.parsers.ubx">Class Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field"><code class="docutils literal notranslate"><span class="pre">Field</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field.format"><code class="docutils literal notranslate"><span class="pre">Field.format</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Field.name"><code class="docutils literal notranslate"><span class="pre">Field.name</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#registering-custom-messages">Registering custom messages</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.parsers.ubx.ubx">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX"><code class="docutils literal notranslate"><span class="pre">UBX</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.checksum"><code class="docutils literal notranslate"><span class="pre">UBX.checksum()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.is_valid"><code class="docutils literal notranslate"><span class="pre">UBX.is_valid()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.parse"><code class="docutils literal notranslate"><span class="pre">UBX.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.register"><code class="docutils literal notranslate"><span class="pre">UBX.register()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.serialize"><code class="docutils literal notranslate"><span class="pre">UBX.serialize()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.validate"><code class="docutils literal notranslate"><span class="pre">UBX.validate()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.ubx.UBX.wrap"><code class="docutils literal notranslate"><span class="pre">UBX.wrap()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Format"><code class="docutils literal notranslate"><span class="pre">Format</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message"><code class="docutils literal notranslate"><span class="pre">Message</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.fields"><code class="docutils literal notranslate"><span class="pre">Message.fields</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.parse"><code class="docutils literal notranslate"><span class="pre">Message.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Message.serialize"><code class="docutils literal notranslate"><span class="pre">Message.serialize()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser"><code class="docutils literal notranslate"><span class="pre">Parser</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.find"><code class="docutils literal notranslate"><span class="pre">Parser.find()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.parse"><code class="docutils literal notranslate"><span class="pre">Parser.parse()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.process"><code class="docutils literal notranslate"><span class="pre">Parser.process()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.parser.Parser.reset"><code class="docutils literal notranslate"><span class="pre">Parser.reset()</span></code></a></li>
 </ul>
 </li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat"><code class="docutils literal notranslate"><span class="pre">Repeat</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat.parse"><code class="docutils literal notranslate"><span class="pre">Repeat.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.Repeat.serialize"><code class="docutils literal notranslate"><span class="pre">Repeat.serialize()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX"><code class="docutils literal notranslate"><span class="pre">UBX</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.activate"><code class="docutils literal notranslate"><span class="pre">UBX.activate()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.checksum"><code class="docutils literal notranslate"><span class="pre">UBX.checksum()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.is_valid"><code class="docutils literal notranslate"><span class="pre">UBX.is_valid()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.parse"><code class="docutils literal notranslate"><span class="pre">UBX.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.register"><code class="docutils literal notranslate"><span class="pre">UBX.register()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.serialize"><code class="docutils literal notranslate"><span class="pre">UBX.serialize()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.validate"><code class="docutils literal notranslate"><span class="pre">UBX.validate()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBX.wrap"><code class="docutils literal notranslate"><span class="pre">UBX.wrap()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser"><code class="docutils literal notranslate"><span class="pre">UBXParser</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.find"><code class="docutils literal notranslate"><span class="pre">UBXParser.find()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.parse"><code class="docutils literal notranslate"><span class="pre">UBXParser.parse()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.process"><code class="docutils literal notranslate"><span class="pre">UBXParser.process()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.UBXParser.reset"><code class="docutils literal notranslate"><span class="pre">UBXParser.reset()</span></code></a></li>
-</ul>
-</li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.chunk"><code class="docutils literal notranslate"><span class="pre">chunk()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.parsers.ubx.group_by"><code class="docutils literal notranslate"><span class="pre">group_by()</span></code></a></li>
 </ul>
 </li>
 </ul>

@@ -350,17 +350,16 @@
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
     <span class="n">GNSS1</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GGA&#39;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-    
+
     <span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">GNSS1</span><span class="p">)</span>
     <span class="n">create_task</span><span class="p">(</span><span class="n">handle_gga</span><span class="p">(</span><span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__gga__&#39;</span><span class="p">)))</span>
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="c1"># Your magic here... 🎉</span>
-        
+
         <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
-<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
-    <span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
 </pre></div>
 </div>
 </section>

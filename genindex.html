@@ -317,11 +317,7 @@
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.acceleration">acceleration (BNO08x property)</a>
 </li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.activate">activate() (BNO08x method)</a>
-
-      <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.activate">(UBX class method)</a>
 </li>
-      </ul></li>
       <li><a href="sdk/reference/ain.html#sdk.ain.AnalogIn">AnalogIn (class in sdk.ain)</a>
 </li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.angular_velocity">angular_velocity (BNO08x property)</a>
@@ -339,8 +335,6 @@
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.attitude">attitude (BNO08x property)</a>
 </li>
       <li><a href="sdk/reference/ublox.html#sdk.modules.gnss.ublox.Ublox.autobaud">autobaud() (Ublox method)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Satellite.azimuth">azimuth (Satellite attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -366,14 +360,12 @@
 </li>
       <li><a href="sdk/reference/dio.html#sdk.dio.DigitalIO.CHANGE">CHANGE (DigitalIO attribute)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA.checksum">checksum() (NMEA class method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA.checksum">checksum() (NMEA class method)</a>
 
       <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.checksum">(UBX class method)</a>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.checksum">(UBX class method)</a>
 </li>
       </ul></li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.chunk">chunk() (in module sdk.parsers.ubx)</a>
-</li>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.chunks">chunks() (in module sdk.canbus)</a>
 </li>
       <li><a href="sdk/reference/stream.html#sdk.stream.Stream.cleanup">cleanup() (Stream method)</a>
@@ -396,8 +388,6 @@
         <li><a href="sdk/reference/ntrip.html#sdk.ntrip.client.NTRIPClient.connect">(NTRIPClient method)</a>
 </li>
       </ul></li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.coordinate">coordinate() (in module sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/ota.html#sdk.utils.ota.OTA.create">create() (OTA method)</a>
 </li>
       <li><a href="sdk/reference/serial.html#sdk.serial.SerialBuffer.cursor">cursor() (SerialBuffer method)</a>
@@ -408,8 +398,6 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.DataValidity">DataValidity (class in sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/debounce.html#sdk.utils.debounce.debounce">debounce() (in module sdk.utils.debounce)</a>
 </li>
       <li><a href="sdk/reference/encoder.html#sdk.utils.encoder.Encoder.decode">decode() (Encoder method)</a>
@@ -436,8 +424,6 @@
 <h2 id="E">E</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Satellite.elevation">elevation (Satellite attribute)</a>
-</li>
       <li><a href="sdk/reference/usb.html#sdk.usb.UsbHub.enable">enable() (UsbHub method)</a>
 </li>
       <li><a href="sdk/reference/encoder.html#sdk.utils.encoder.Encoder.encode">encode() (Encoder method)</a>
@@ -458,35 +444,17 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/dio.html#sdk.dio.DigitalIO.FALLING">FALLING (DigitalIO attribute)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Field">Field (class in sdk.parsers.nmea)</a>
-
-      <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Field">(class in sdk.parsers.ubx)</a>
-</li>
-      </ul></li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Message.fields">fields (Message property)</a>
-</li>
       <li><a href="sdk/reference/storage.html#sdk.storage.Storage.file">file() (Storage method)</a>
 </li>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.CANBus.filter">filter() (CANBus method)</a>
 </li>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.CANBus.filters">filters (CANBus property)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEAParser.find">find() (NMEAParser method)</a>
-
-      <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBXParser.find">(UBXParser method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.parser.Parser.find">find() (Parser method)</a>, <a href="sdk/reference/ubx.html#sdk.parsers.ubx.parser.Parser.find">[1]</a>
 </li>
-      </ul></li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.FixType">FixType (class in sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/flash.html#sdk.flash.FlashDrive">FlashDrive (class in sdk.flash)</a>
-</li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Format">Format (class in sdk.parsers.ubx)</a>
-</li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Field.format">format (Field attribute)</a>
 </li>
       <li><a href="sdk/reference/flash.html#sdk.flash.FlashDrive.format">format() (FlashDrive method)</a>
 </li>
@@ -505,10 +473,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/ethernet.html#sdk.ethernet.Ethernet.gateway">gateway (Ethernet property)</a>
-</li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.group_by">group_by() (in module sdk.parsers.ubx)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -544,10 +508,10 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/pwm.html#sdk.pwm.PWM.is_running">is_running (PWM property)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA.is_valid">is_valid() (NMEA class method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA.is_valid">is_valid() (NMEA class method)</a>
 
       <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.is_valid">(UBX class method)</a>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.is_valid">(UBX class method)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -573,8 +537,6 @@
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.magnetic_field">magnetic_field (BNO08x property)</a>
 </li>
       <li><a href="sdk/reference/pwm.html#sdk.pwm.PWM.MAX_FREQUENCY">MAX_FREQUENCY (PWM attribute)</a>
-</li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Message">Message (class in sdk.parsers.ubx)</a>
 </li>
       <li><a href="sdk/reference/pwm.html#sdk.pwm.PWM.MIN_FREQUENCY">MIN_FREQUENCY (PWM attribute)</a>
 </li>
@@ -610,9 +572,13 @@
 </li>
         <li><a href="sdk/reference/ntrip.html#module-sdk.ntrip.client">sdk.ntrip.client</a>
 </li>
-        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea">sdk.parsers.nmea</a>
+        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea.nmea">sdk.parsers.nmea.nmea</a>
 </li>
-        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx">sdk.parsers.ubx</a>
+        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea.parser">sdk.parsers.nmea.parser</a>
+</li>
+        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx.parser">sdk.parsers.ubx.parser</a>
+</li>
+        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx.ubx">sdk.parsers.ubx.ubx</a>
 </li>
         <li><a href="sdk/reference/pwm.html#module-sdk.pwm">sdk.pwm</a>
 </li>
@@ -645,16 +611,10 @@
 <h2 id="N">N</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Field.name">name (Field attribute)</a>, <a href="sdk/reference/ubx.html#sdk.parsers.ubx.Field.name">[1]</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NavigationMode">NavigationMode (class in sdk.parsers.nmea)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA">NMEA (class in sdk.parsers.nmea)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA">NMEA (class in sdk.parsers.nmea.nmea)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEAParser">NMEAParser (class in sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/ntrip.html#sdk.ntrip.bridge.NTRIPBridge">NTRIPBridge (class in sdk.ntrip.bridge)</a>
 </li>
       <li><a href="sdk/reference/ntrip.html#sdk.ntrip.client.NTRIPClient">NTRIPClient (class in sdk.ntrip.client)</a>
@@ -681,8 +641,6 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/storage.html#sdk.storage.Storage.open">open() (Storage method)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.OperationMode">OperationMode (class in sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/ota.html#sdk.utils.ota.OTA">OTA (class in sdk.utils.ota)</a>
 </li>
       <li><a href="sdk/reference/dio.html#sdk.dio.DigitalIO.OUT">OUT (DigitalIO attribute)</a>
@@ -693,20 +651,18 @@
 <h2 id="P">P</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Field.parse">parse (Field attribute)</a>
-</li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Message.parse">parse() (Message method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA.parse">parse() (NMEA class method)</a>
 
       <ul>
-        <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA.parse">(NMEA class method)</a>
+        <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.parser.Parser.parse">(Parser method)</a>, <a href="sdk/reference/ubx.html#sdk.parsers.ubx.parser.Parser.parse">[1]</a>
 </li>
-        <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEAParser.parse">(NMEAParser method)</a>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.parse">(UBX class method)</a>
 </li>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Repeat.parse">(Repeat method)</a>
-</li>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.parse">(UBX class method)</a>
-</li>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBXParser.parse">(UBXParser method)</a>
+      </ul></li>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.parser.Parser">Parser (class in sdk.parsers.nmea.parser)</a>
+
+      <ul>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.parser.Parser">(class in sdk.parsers.ubx.parser)</a>
 </li>
       </ul></li>
   </ul></td>
@@ -715,16 +671,8 @@
 </li>
       <li><a href="sdk/reference/periodic.html#sdk.utils.periodic.periodic">periodic() (in module sdk.utils.periodic)</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.PositionMode">PositionMode (class in sdk.parsers.nmea)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.parser.Parser.process">process() (Parser method)</a>, <a href="sdk/reference/ubx.html#sdk.parsers.ubx.parser.Parser.process">[1]</a>
 </li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Satellite.prn">prn (Satellite attribute)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEAParser.process">process() (NMEAParser method)</a>
-
-      <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBXParser.process">(UBXParser method)</a>
-</li>
-      </ul></li>
       <li><a href="sdk/reference/pwm.html#sdk.pwm.PWM">PWM (class in sdk.pwm)</a>
 </li>
   </ul></td>
@@ -753,28 +701,24 @@
         <li><a href="sdk/reference/serial.html#sdk.serial.SerialBufferCursor.readinto">(SerialBufferCursor method)</a>
 </li>
       </ul></li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA.register">register() (NMEA class method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA.register">register() (NMEA class method)</a>
 
       <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.register">(UBX class method)</a>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.register">(UBX class method)</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/serial.html#sdk.serial.SerialBuffer.remove">remove() (SerialBuffer method)</a>
 
       <ul>
         <li><a href="sdk/reference/storage.html#sdk.storage.Storage.remove">(Storage method)</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Repeat">Repeat (class in sdk.parsers.ubx)</a>
-</li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.reset">reset() (BNO08x method)</a>
 
       <ul>
-        <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEAParser.reset">(NMEAParser method)</a>
-</li>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBXParser.reset">(UBXParser method)</a>
+        <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.parser.Parser.reset">(Parser method)</a>, <a href="sdk/reference/ubx.html#sdk.parsers.ubx.parser.Parser.reset">[1]</a>
 </li>
         <li><a href="sdk/reference/usb.html#sdk.usb.UsbHub.reset">(UsbHub method)</a>
 </li>
@@ -796,8 +740,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/ain.html#sdk.ain.AnalogIn.SAMPLE_SIZE">SAMPLE_SIZE (AnalogIn attribute)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Satellite">Satellite (class in sdk.parsers.nmea)</a>
 </li>
       <li>
     sdk.ain
@@ -877,17 +819,31 @@
 </li>
       </ul></li>
       <li>
-    sdk.parsers.nmea
+    sdk.parsers.nmea.nmea
 
       <ul>
-        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea">module</a>
+        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea.nmea">module</a>
 </li>
       </ul></li>
       <li>
-    sdk.parsers.ubx
+    sdk.parsers.nmea.parser
 
       <ul>
-        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx">module</a>
+        <li><a href="sdk/reference/nmea.html#module-sdk.parsers.nmea.parser">module</a>
+</li>
+      </ul></li>
+      <li>
+    sdk.parsers.ubx.parser
+
+      <ul>
+        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx.parser">module</a>
+</li>
+      </ul></li>
+      <li>
+    sdk.parsers.ubx.ubx
+
+      <ul>
+        <li><a href="sdk/reference/ubx.html#module-sdk.parsers.ubx.ubx">module</a>
 </li>
       </ul></li>
       <li>
@@ -897,6 +853,8 @@
         <li><a href="sdk/reference/pwm.html#module-sdk.pwm">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     sdk.serial
 
@@ -911,8 +869,6 @@
         <li><a href="sdk/reference/storage.html#module-sdk.storage">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     sdk.stream
 
@@ -968,21 +924,13 @@
 </li>
       <li><a href="sdk/reference/serial.html#sdk.serial.SerialBufferCursor">SerialBufferCursor (class in sdk.serial)</a>
 </li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Message.serialize">serialize() (Message method)</a>
-
-      <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.Repeat.serialize">(Repeat method)</a>
+      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.serialize">serialize() (UBX method)</a>
 </li>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.serialize">(UBX method)</a>
-</li>
-      </ul></li>
       <li><a href="sdk/reference/dio.html#sdk.dio.DigitalIO.set">set() (DigitalIO method)</a>
 </li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.set_frame">set_frame() (BNO08x method)</a>
 </li>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.CANBus.silent">silent() (CANBus method)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Satellite.snr">snr (Satellite attribute)</a>
 </li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.stabilized_rotation">stabilized_rotation (BNO08x property)</a>
 </li>
@@ -1008,18 +956,14 @@
 <h2 id="T">T</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Talker">Talker (class in sdk.parsers.nmea)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.time">time() (in module sdk.parsers.nmea)</a>
-</li>
       <li><a href="sdk/reference/forward.html#sdk.forward.Forwarder.to">to() (Forwarder method)</a>
 </li>
       <li><a href="sdk/reference/storage.html#sdk.storage.to_best_size">to_best_size() (in module sdk.storage)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.to_canbus_filters">to_canbus_filters() (in module sdk.canbus)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/dio.html#sdk.dio.DigitalIO.toggle">toggle() (DigitalIO method)</a>
 
       <ul>
@@ -1027,8 +971,6 @@
 </li>
       </ul></li>
       <li><a href="sdk/reference/storage.html#sdk.storage.DiskUsage.total">total (DiskUsage attribute)</a>
-</li>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.Field.type">type (Field attribute)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -1038,9 +980,7 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="sdk/reference/ublox.html#sdk.modules.gnss.ublox.Ublox">Ublox (class in sdk.modules.gnss.ublox)</a>
 </li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX">UBX (class in sdk.parsers.ubx)</a>
-</li>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBXParser">UBXParser (class in sdk.parsers.ubx)</a>
+      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX">UBX (class in sdk.parsers.ubx.ubx)</a>
 </li>
       <li><a href="sdk/reference/bno08x.html#sdk.modules.bno08x.BNO08x.update">update() (BNO08x method)</a>
 
@@ -1062,10 +1002,10 @@
 <h2 id="V">V</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.NMEA.validate">validate() (NMEA class method)</a>
+      <li><a href="sdk/reference/nmea.html#sdk.parsers.nmea.nmea.NMEA.validate">validate() (NMEA class method)</a>
 
       <ul>
-        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.validate">(UBX class method)</a>
+        <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.validate">(UBX class method)</a>
 </li>
       </ul></li>
       <li><a href="sdk/reference/ain.html#sdk.ain.AnalogIn.value">value (AnalogIn property)</a>
@@ -1090,7 +1030,7 @@
 <h2 id="W">W</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.UBX.wrap">wrap() (UBX class method)</a>
+      <li><a href="sdk/reference/ubx.html#sdk.parsers.ubx.ubx.UBX.wrap">wrap() (UBX class method)</a>
 </li>
       <li><a href="sdk/reference/canbus.html#sdk.canbus.CANBus.write">write() (CANBus method)</a>
 

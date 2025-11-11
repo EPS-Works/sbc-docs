@@ -23,34 +23,31 @@ NTRIP_CONFIG = {
     'password': '*********',
 }
 
-
 async def main():
     """Main application"""
     Ethernet.connect(**NETWORK_CONFIG)
     print(f'Connected as {Ethernet.ip}')
-    
+
     # Start streaming GGA from GNSS1
     GNSS1.stream(messages=['GGA'], port=1)
-    
+
     # Create a buffer cursor for concurrent GNSS1 reads
     buffer = SerialBuffer(GNSS1)
     cursor = buffer.cursor('__ntrip__')
-    
+
     # Run the bridge asynchronously
     client = NTRIPClient(**NTRIP_CONFIG)
     bridge = RTKBridge(client)
     rtk = create_task(bridge.run(cursor))
-    
-    try: 
+
+    try:
         while True:
             # Your magic here... 🎉
             await sleep(1)
     finally:
         rtk.cancel()
 
-
-if __name__ == "__main__":
-    run(main())
+run(main())
 ```
 
 ```{eval-rst}

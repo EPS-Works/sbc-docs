@@ -384,7 +384,7 @@ interface to one or more target interfaces, with optional throttling control.</p
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>source</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="serial.html#sdk.serial.Serial" title="sdk.serial.Serial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serial</span></code></a></span>)</p></li>
-<li><p><strong>throttle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code> | <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
+<li><p><strong>throttle</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>)</p></li>
 </ul>
 </dd>
 </dl>
@@ -409,7 +409,7 @@ is closed or an error occurs.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>target</strong> (<span class="sphinx_autodoc_typehints-type"><a class="reference internal" href="serial.html#sdk.serial.Serial" title="sdk.serial.Serial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serial</span></code></a> | <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span>) – The Serial interface to forward data to or a callback function</p></li>
+<li><p><strong>target</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<a class="reference internal" href="serial.html#sdk.serial.Serial" title="sdk.serial.Serial"><code class="xref py py-class docutils literal notranslate"><span class="pre">Serial</span></code></a>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-class docutils literal notranslate"><span class="pre">bytes</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]]</span>) – The Serial interface to forward data to or a callback function</p></li>
 <li><p><strong>input.</strong> (<em>that accepts bytes as</em>)</p></li>
 </ul>
 </dd>
