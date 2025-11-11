@@ -48,7 +48,7 @@
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
     <link rel="next" title="Asynchronous RTK Correction Bridge Using NTRIP and GNSS" href="ntrip_forward.html" />
-    <link rel="prev" title="Code Examples" href="index.html" />
+    <link rel="prev" title="Using GNSS modules" href="gnss_modules.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -177,10 +177,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../reference/usb.html">USB Hub</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/ublox.html">Ublox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../reference/ubx.html">UBX</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../reference/unicore.html">Unicore</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../board-module.html">Board Hardware Module</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Code Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="gnss_modules.html">Using GNSS modules</a></li>
 <li class="toctree-l3 current active"><a class="current reference internal" href="#">Asynchronous GNSS Message Handler</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ntrip_forward.html">Asynchronous RTK Correction Bridge Using NTRIP and GNSS</a></li>
 </ul>
@@ -340,12 +342,12 @@
 <p>This script sets up an asynchronous handler to process NMEA GGA messages from a GNSS module. It initializes a serial buffer cursor for the GNSS1 device, launches a background task to parse data from the incoming stream, and leaves the main loop open for additional tasks or logic.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">Stream</span><span class="p">,</span> <span class="n">SerialBuffer</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers</span><span class="w"> </span><span class="kn">import</span> <span class="n">NMEA</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.nmea</span><span class="w"> </span><span class="kn">import</span> <span class="n">Parser</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">sleep</span><span class="p">,</span> <span class="n">create_task</span><span class="p">,</span> <span class="n">run</span>
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">handle_gga</span><span class="p">(</span><span class="n">cursor</span><span class="p">):</span>
-    <span class="k">with</span> <span class="n">Stream</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">parsers</span><span class="o">=</span><span class="p">[</span><span class="n">NMEA</span><span class="p">])</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
-        <span class="k">async</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>
+    <span class="k">with</span> <span class="n">Stream</span><span class="p">(</span><span class="n">cursor</span><span class="p">,</span> <span class="n">parsers</span><span class="o">=</span><span class="p">[</span><span class="n">Parser</span><span class="p">()])</span> <span class="k">as</span> <span class="n">stream</span><span class="p">:</span>
+        <span class="k">async</span> <span class="k">for</span> <span class="n">msg</span> <span class="ow">in</span> <span class="n">stream</span><span class="p">:</span>  <span class="c1"># msg is an NMEA instance here</span>
             <span class="nb">print</span><span class="p">(</span><span class="n">msg</span><span class="o">.</span><span class="n">lat</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">lon</span><span class="p">,</span> <span class="n">msg</span><span class="o">.</span><span class="n">fix</span><span class="p">)</span>
 
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
@@ -356,7 +358,6 @@
 
     <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
         <span class="c1"># Your magic here... 🎉</span>
-
         <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
 
 <span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
@@ -376,12 +377,12 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="index.html"
+       href="gnss_modules.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">Code Examples</p>
+        <p class="prev-next-title">Using GNSS modules</p>
       </div>
     </a>
     <a class="right-next"

@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Asynchronous RTK Correction Bridge Using NTRIP and GNSS &#8212; sbc-docs  documentation</title>
+    <title>Using GNSS modules &#8212; sbc-docs  documentation</title>
   
   
   
@@ -44,10 +44,11 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/examples/ntrip_forward';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/examples/gnss_modules';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="prev" title="Asynchronous GNSS Message Handler" href="async_gnss_stream.html" />
+    <link rel="next" title="Asynchronous GNSS Message Handler" href="async_gnss_stream.html" />
+    <link rel="prev" title="Code Examples" href="index.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -181,9 +182,9 @@
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../board-module.html">Board Hardware Module</a></li>
 <li class="toctree-l2 current active has-children"><a class="reference internal" href="index.html">Code Examples</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="gnss_modules.html">Using GNSS modules</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Using GNSS modules</a></li>
 <li class="toctree-l3"><a class="reference internal" href="async_gnss_stream.html">Asynchronous GNSS Message Handler</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Asynchronous RTK Correction Bridge Using NTRIP and GNSS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ntrip_forward.html">Asynchronous RTK Correction Bridge Using NTRIP and GNSS</a></li>
 </ul>
 </details></li>
 </ul>
@@ -247,7 +248,7 @@
       
       
       
-      <li><a href="../../_sources/sdk/examples/ntrip_forward.md" target="_blank"
+      <li><a href="../../_sources/sdk/examples/gnss_modules.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -321,7 +322,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Asynchronous RTK Correction Bridge Using NTRIP and GNSS</h1>
+    <h1>Using GNSS modules</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,54 +336,19 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <!-- markdownlint-disable-next-line MD041 -->
-<section id="asynchronous-rtk-correction-bridge-using-ntrip-and-gnss">
-<h1>Asynchronous RTK Correction Bridge Using NTRIP and GNSS<a class="headerlink" href="#asynchronous-rtk-correction-bridge-using-ntrip-and-gnss" title="Link to this heading">#</a></h1>
-<p>This script sets up an RTK correction bridge using NTRIP caster to enhance GNSS positioning. It connects to a network, creates a serial buffer cursor for GNSS1 to stream GGA messages, and launches an asynchronous task that feeds RTK correction data into the GNSS pipeline. The main loop remains available for user-defined tasks.</p>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS1</span><span class="p">,</span> <span class="n">Ethernet</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk</span><span class="w"> </span><span class="kn">import</span> <span class="n">SerialBuffer</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">ntrip</span><span class="w"> </span><span class="kn">import</span> <span class="n">NTRIPClient</span><span class="p">,</span> <span class="n">RTKBridge</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">asyncio</span><span class="w"> </span><span class="kn">import</span> <span class="n">run</span><span class="p">,</span> <span class="n">create_task</span><span class="p">,</span> <span class="n">sleep</span>
+  <section id="using-gnss-modules">
+<h1>Using GNSS modules<a class="headerlink" href="#using-gnss-modules" title="Link to this heading">#</a></h1>
+<p>This example demonstrates how to work with pre-configured GNSS module (GNSS_1) that’s ready to use immediately, and adding new modules to available GPSx sockets.</p>
+<p><strong>Supported GNSS Modules</strong>: <code class="docutils literal notranslate"><span class="pre">Ublox</span> <span class="pre">ZED-F9P</span></code> and <code class="docutils literal notranslate"><span class="pre">Unicore</span> <span class="pre">UM98x</span></code></p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sbc</span><span class="w"> </span><span class="kn">import</span> <span class="n">GNSS_1</span><span class="p">,</span> <span class="n">GPS1</span><span class="p">,</span> <span class="n">GPS2</span><span class="p">,</span> <span class="n">GNSS_MODULES</span>
 
-<span class="c1"># Extract to config file</span>
-<span class="n">NETWORK_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-  <span class="s1">&#39;ip&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.1.20&#39;</span><span class="p">,</span>
-  <span class="s1">&#39;gateway&#39;</span><span class="p">:</span> <span class="s1">&#39;192.168.1.1&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<span class="n">data</span> <span class="o">=</span> <span class="n">GNSS_1</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>  <span class="c1"># GNSS1 is already ready to use</span>
 
-<span class="n">NTRIP_CONFIG</span> <span class="o">=</span> <span class="p">{</span>
-    <span class="s1">&#39;host&#39;</span><span class="p">:</span> <span class="s1">&#39;192.148.213.42&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;port&#39;</span><span class="p">:</span> <span class="mi">2101</span><span class="p">,</span>
-    <span class="s1">&#39;mountpoint&#39;</span><span class="p">:</span> <span class="s1">&#39;__mountpoint__&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;user&#39;</span><span class="p">:</span> <span class="s1">&#39;*********&#39;</span><span class="p">,</span>
-    <span class="s1">&#39;password&#39;</span><span class="p">:</span> <span class="s1">&#39;*********&#39;</span><span class="p">,</span>
-<span class="p">}</span>
+<span class="c1"># Create new GNSS modules installed in board&#39;s GPSx ports</span>
+<span class="n">GNSS_2</span> <span class="o">=</span> <span class="n">GNSS_MODULES</span><span class="o">.</span><span class="n">ZED_F9P</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">GPS2</span><span class="p">)</span>  <span class="c1"># Ublox ZED-F9P module</span>
+<span class="n">GNSS_3</span> <span class="o">=</span> <span class="n">GNSS_MODULES</span><span class="o">.</span><span class="n">UM98x</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">GPS3</span><span class="p">)</span>    <span class="c1"># Unicore UM98x module</span>
 
-<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">main</span><span class="p">():</span>
-<span class="w">    </span><span class="sd">&quot;&quot;&quot;Main application&quot;&quot;&quot;</span>
-    <span class="n">Ethernet</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="o">**</span><span class="n">NETWORK_CONFIG</span><span class="p">)</span>
-    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Connected as </span><span class="si">{</span><span class="n">Ethernet</span><span class="o">.</span><span class="n">ip</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Start streaming GGA from GNSS1</span>
-    <span class="n">GNSS1</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GGA&#39;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-    <span class="c1"># Create a buffer cursor for concurrent GNSS1 reads</span>
-    <span class="n">buffer</span> <span class="o">=</span> <span class="n">SerialBuffer</span><span class="p">(</span><span class="n">GNSS1</span><span class="p">)</span>
-    <span class="n">cursor</span> <span class="o">=</span> <span class="n">buffer</span><span class="o">.</span><span class="n">cursor</span><span class="p">(</span><span class="s1">&#39;__ntrip__&#39;</span><span class="p">)</span>
-
-    <span class="c1"># Run the bridge asynchronously</span>
-    <span class="n">client</span> <span class="o">=</span> <span class="n">NTRIPClient</span><span class="p">(</span><span class="o">**</span><span class="n">NTRIP_CONFIG</span><span class="p">)</span>
-    <span class="n">bridge</span> <span class="o">=</span> <span class="n">RTKBridge</span><span class="p">(</span><span class="n">client</span><span class="p">)</span>
-    <span class="n">rtk</span> <span class="o">=</span> <span class="n">create_task</span><span class="p">(</span><span class="n">bridge</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cursor</span><span class="p">))</span>
-
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-            <span class="c1"># Your magic here... 🎉</span>
-            <span class="k">await</span> <span class="n">sleep</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
-    <span class="k">finally</span><span class="p">:</span>
-        <span class="n">rtk</span><span class="o">.</span><span class="n">cancel</span><span class="p">()</span>
-
-<span class="n">run</span><span class="p">(</span><span class="n">main</span><span class="p">())</span>
+<span class="n">GNSS_2</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>  <span class="c1"># GPSx sockets share power -&gt; GNSS_2.on() == GNSS_3.on()</span>
 </pre></div>
 </div>
 </section>
@@ -399,13 +365,22 @@
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="async_gnss_stream.html"
+       href="index.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Code Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="async_gnss_stream.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
         <p class="prev-next-title">Asynchronous GNSS Message Handler</p>
       </div>
+      <i class="fa-solid fa-angle-right"></i>
     </a>
 </div>
                 </footer>

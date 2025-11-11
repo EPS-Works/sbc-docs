@@ -84,3 +84,4 @@ stream.md
 usb.md
 ublox.md
 ubx.md
+unicore.md

@@ -18,6 +18,8 @@ The SDK is fully available in both files and can be used right away.
 
 ## Real-world examples
 
+[GNSS modules](gnss_modules.md) - Set up extra GNSS modules installed in SBC GPSx sockets
+
 [Asynchronous GNSS Message Handler](async_gnss_stream.md) - Set up a handler to process NMEA GGA messages from a GNSS module.
 
 [Asynchronous RTK Correction Bridge Using NTRIP and GNSS](ntrip_forward.md) - Set up an RTK correction bridge using a remote NTRIP caster to enhance GNSS positioning.
@@ -25,6 +27,7 @@ The SDK is fully available in both files and can be used right away.
 ```{toctree}
 :hidden:
 
+gnss_modules.md
 async_gnss_stream.md
 ntrip_forward.md
 ```

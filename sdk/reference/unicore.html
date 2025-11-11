@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Ublox &#8212; sbc-docs  documentation</title>
+    <title>Unicore &#8212; sbc-docs  documentation</title>
   
   
   
@@ -44,11 +44,11 @@
     <script src="../../_static/doctools.js?v=9bcbadda"></script>
     <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
     <script src="../../_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
-    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/reference/ublox';</script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'sdk/reference/unicore';</script>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="UBX" href="ubx.html" />
-    <link rel="prev" title="USB Hub" href="usb.html" />
+    <link rel="next" title="Board Hardware Module" href="../board-module.html" />
+    <link rel="prev" title="UBX" href="ubx.html" />
   <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <meta name="docsearch:language" content="en"/>
   <meta name="docsearch:version" content="" />
@@ -175,9 +175,9 @@
 <li class="toctree-l3"><a class="reference internal" href="storage.html">Storage</a></li>
 <li class="toctree-l3"><a class="reference internal" href="stream.html">Stream</a></li>
 <li class="toctree-l3"><a class="reference internal" href="usb.html">USB Hub</a></li>
-<li class="toctree-l3 current active"><a class="current reference internal" href="#">Ublox</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ublox.html">Ublox</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ubx.html">UBX</a></li>
-<li class="toctree-l3"><a class="reference internal" href="unicore.html">Unicore</a></li>
+<li class="toctree-l3 current active"><a class="current reference internal" href="#">Unicore</a></li>
 </ul>
 </details></li>
 <li class="toctree-l2"><a class="reference internal" href="../board-module.html">Board Hardware Module</a></li>
@@ -248,7 +248,7 @@
       
       
       
-      <li><a href="../../_sources/sdk/reference/ublox.md" target="_blank"
+      <li><a href="../../_sources/sdk/reference/unicore.md" target="_blank"
    class="btn btn-sm btn-download-source-button dropdown-item"
    title="Download source file"
    data-bs-placement="left" data-bs-toggle="tooltip"
@@ -324,7 +324,7 @@
               
 
 <div id="jb-print-docs-body" class="onlyprint">
-    <h1>Ublox</h1>
+    <h1>Unicore</h1>
     <!-- Table of contents -->
     <div id="print-main-content">
         <div id="jb-print-toc">
@@ -335,12 +335,10 @@
             <nav aria-label="Page">
                 <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.gnss.ublox">Class Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox"><code class="docutils literal notranslate"><span class="pre">Ublox</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.autobaud"><code class="docutils literal notranslate"><span class="pre">Ublox.autobaud()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.config"><code class="docutils literal notranslate"><span class="pre">Ublox.config()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.halt"><code class="docutils literal notranslate"><span class="pre">Ublox.halt()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.stream"><code class="docutils literal notranslate"><span class="pre">Ublox.stream()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.gnss.unicore">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore"><code class="docutils literal notranslate"><span class="pre">Unicore</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore.halt"><code class="docutils literal notranslate"><span class="pre">Unicore.halt()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore.stream"><code class="docutils literal notranslate"><span class="pre">Unicore.stream()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -356,104 +354,75 @@
 <div id="searchbox"></div>
                 <article class="bd-article">
                   
-  <section id="ublox">
-<h1>Ublox<a class="headerlink" href="#ublox" title="Link to this heading">#</a></h1>
-<p>The Ublox module provides a high-level interface for controlling Ublox ZED-F9P GNSS receivers via UART.
-It extends the base GNSS interface to provide specific configuration and streaming control using the UBX protocol.</p>
+  <section id="unicore">
+<h1>Unicore<a class="headerlink" href="#unicore" title="Link to this heading">#</a></h1>
+<p>The Unicore module provides a high-level interface for controlling Unicore GNSS receivers via UART.
+It extends the base GNSS interface to provide specific configuration and streaming control using Unicore’s command protocol.</p>
 <section id="basic-usage">
 <h2>Basic Usage<a class="headerlink" href="#basic-usage" title="Link to this heading">#</a></h2>
-<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.xbee</span><span class="w"> </span><span class="kn">import</span> <span class="n">XBeeSocket</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
-
-<span class="c1"># Initialize Ublox receiver</span>
-<span class="n">socket</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">)</span>
-<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
-
-<span class="c1"># Optionally configure message streaming</span>
-<span class="n">gnss</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;NAV-PVT&quot;</span><span class="p">,</span> <span class="s2">&quot;NAV-SAT&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
-
-<span class="k">while</span> <span class="kc">True</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">data</span> <span class="o">:=</span> <span class="n">gnss</span><span class="o">.</span><span class="n">read</span><span class="p">():</span>
-        <span class="nb">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</pre></div>
-</div>
-<p>GNSS sockets other than main include dedicated power pins. You can manage power using the DigitalIO module:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.dio</span><span class="w"> </span><span class="kn">import</span> <span class="n">DigitalIO</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">sdk.xbee</span><span class="w"> </span><span class="kn">import</span> <span class="n">XBeeSocket</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Ublox</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">sdk.modules.gnss</span><span class="w"> </span><span class="kn">import</span> <span class="n">Unicore</span>
 
-<span class="c1"># Initialize Ublox receiver on GPS2 socket</span>
+<span class="c1"># Initialize Unicore receiver</span>
 <span class="n">power</span> <span class="o">=</span> <span class="n">DigitalIO</span><span class="p">(</span><span class="n">pin</span><span class="o">=</span><span class="s2">&quot;PWR_GNSS&quot;</span><span class="p">)</span>
-<span class="n">socket</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">baudrate</span><span class="o">=</span><span class="mi">115200</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">power</span><span class="p">)</span>
-<span class="n">gnss</span> <span class="o">=</span> <span class="n">Ublox</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
+<span class="n">socket</span> <span class="o">=</span> <span class="n">XBeeSocket</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">power</span><span class="o">=</span><span class="n">power</span><span class="p">)</span>
+<span class="n">gnss</span> <span class="o">=</span> <span class="n">Unicore</span><span class="p">(</span><span class="n">socket</span><span class="o">=</span><span class="n">socket</span><span class="p">)</span>
 
 <span class="n">gnss</span><span class="o">.</span><span class="n">on</span><span class="p">()</span>
+
+<span class="c1"># Configure message streaming</span>
+<span class="n">gnss</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;GPGGA&quot;</span><span class="p">,</span> <span class="s2">&quot;GPRMC&quot;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">frequency</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The Unicore UM982 integrates 2 receivers. Messages ending with ‘H’ (eg., GPGGAH) enable streaming for the second receiver. Unicore also supports proprietary NMEA messages such as GPHPR for heading information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">sdk.parsers.nmea</span><span class="w"> </span><span class="kn">import</span> <span class="n">MESSAGES</span><span class="p">,</span> <span class="n">NMEA</span><span class="p">,</span> <span class="n">Field</span><span class="p">,</span> <span class="n">time</span><span class="p">,</span> <span class="n">FixType</span>
+
+<span class="c1"># Clone secondary NMEA messages</span>
+<span class="n">MESSAGES</span><span class="o">.</span><span class="n">register</span><span class="p">({</span><span class="s2">&quot;GGAH&quot;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">MESSAGES</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;GGA&quot;</span><span class="p">)})</span>
+
+<span class="c1"># Register proprietary NMEA messages</span>
+<span class="n">NMEA</span><span class="o">.</span><span class="n">register</span><span class="p">(</span>
+    <span class="n">msg_id</span><span class="o">=</span><span class="s2">&quot;HPR&quot;</span><span class="p">,</span>
+    <span class="n">fields</span><span class="o">=</span><span class="p">[</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;utc&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">tuple</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="n">time</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;heading&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;pitch&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;roll&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;fix&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="n">FixType</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;satellites&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;age&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">float</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+        <span class="n">Field</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s2">&quot;station&quot;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span> <span class="n">parse</span><span class="o">=</span><span class="kc">None</span><span class="p">),</span>
+    <span class="p">],</span>
+<span class="p">)</span>
+
+<span class="c1"># Activate messages</span>
+<span class="n">gnss</span><span class="o">.</span><span class="n">stream</span><span class="p">(</span><span class="n">messages</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GNGGAH&#39;</span><span class="p">,</span> <span class="s1">&#39;GPHPR&#39;</span><span class="p">],</span> <span class="n">port</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
-<section id="module-sdk.modules.gnss.ublox">
-<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.modules.gnss.ublox" title="Link to this heading">#</a></h2>
+<section id="module-sdk.modules.gnss.unicore">
+<span id="class-reference"></span><h2>Class Reference<a class="headerlink" href="#module-sdk.modules.gnss.unicore" title="Link to this heading">#</a></h2>
 <dl class="py class">
-<dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox">
-<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Ublox</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox" title="Link to this definition">#</a></dt>
-<dd><p>Controller for Ublox ZED-F9P GNSS receivers.</p>
-<p>This class extends the base GNSS interface to provide high-level configuration
-of UBX protocol messages and streaming behavior. It handles enabling and disabling
-message outputs on specified ports using UBX-CFG-VALSET commands.</p>
+<dt class="sig sig-object py" id="sdk.modules.gnss.unicore.Unicore">
+<em class="property"><span class="k"><span class="pre">class</span></span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">Unicore</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">socket</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#sdk.modules.gnss.unicore.Unicore" title="Link to this definition">#</a></dt>
+<dd><p>Controller for Unicore GNSS receivers.</p>
+<p>This class extends the base GNSS interface to provide a high-level configuration.
+It handles enabling and disabling message outputs on specified ports.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><p><strong>socket</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">XBeeSocket</span></code></span>)</p>
 </dd>
 </dl>
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox.autobaud">
-<span class="sig-name descname"><span class="pre">autobaud</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">timeout</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">100</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox.autobaud" title="Link to this definition">#</a></dt>
-<dd><p>Auto-detect the baudrate of the connected GNSS receiver.</p>
-<p>This method attempts to detect the correct baudrate by sending a test message
-and checking for acknowledgment across common baudrates.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>timeout</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">100</span></code>) – The maximum time to wait for the ACK response in milliseconds.</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>The detected baudrate, or None if no baudrate was detected.</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox.config">
-<span class="sig-name descname"><span class="pre">config</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0x01</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox.config" title="Link to this definition">#</a></dt>
-<dd><p>Configure the GNSS receiver using UBX-CFG-VALSET messages.</p>
-<p>This method sends configuration data to the receiver and waits for acknowledgment.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><ul class="simple">
-<li><p><strong>data</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-data docutils literal notranslate"><span class="pre">Tuple</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]]]</span>) – List of tuples containing (Key ID, value) pairs to configure.</p></li>
-<li><p><strong>layer</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code></span>, default: <code class="docutils literal notranslate"><span class="pre">0x01</span></code>) – The configuration layer to modify (default: RAM).</p></li>
-</ul>
-</dd>
-<dt class="field-even">Raises<span class="colon">:</span></dt>
-<dd class="field-even"><p><strong>OSError</strong> – If the configuration cannot be applied or acknowledgment is not received.</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code></span></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox.halt">
-<span class="sig-name descname"><span class="pre">halt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox.halt" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.modules.gnss.unicore.Unicore.halt">
+<span class="sig-name descname"><span class="pre">halt</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#sdk.modules.gnss.unicore.Unicore.halt" title="Link to this definition">#</a></dt>
 <dd><p>Stop streaming GNSS messages.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>messages</strong> – List of message types to stop streaming.</p></li>
-<li><p><strong>port</strong> – The port to stop streaming messages to.</p></li>
+<li><p><strong>messages</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – List of message types to stop streaming.</p></li>
+<li><p><strong>port</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The port to stop streaming messages to.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Raises<span class="colon">:</span></dt>
@@ -469,21 +438,21 @@ and checking for acknowledgment across common baudrates.</p>
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="sdk.modules.gnss.ublox.Ublox.stream">
-<span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="pre">Any</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.modules.gnss.ublox.Ublox.stream" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="sdk.modules.gnss.unicore.Unicore.stream">
+<span class="sig-name descname"><span class="pre">stream</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">messages</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">frequency</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Callable</span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">[</span></span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">None</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#sdk.modules.gnss.unicore.Unicore.stream" title="Link to this definition">#</a></dt>
 <dd><p>Start streaming GNSS messages.</p>
 <p>This method configures the GNSS receiver to stream specified messages to a port
 at the given frequency.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>messages</strong> – List of message types to stream.</p></li>
-<li><p><strong>port</strong> – The port to stream messages to.</p></li>
-<li><p><strong>frequency</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">1</span></code>) – Optional frequency in Hz for message streaming.</p></li>
+<li><p><strong>messages</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-class docutils literal notranslate"><span class="pre">List</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – List of message types to stream.</p></li>
+<li><p><strong>port</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Union</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">str</span></code>]</span>) – The port to stream messages to.</p></li>
+<li><p><strong>frequency</strong> (<span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Optional</span></code>[<code class="xref py py-class docutils literal notranslate"><span class="pre">int</span></code>]</span>, default: <code class="docutils literal notranslate"><span class="pre">None</span></code>) – Optional frequency in Hz for message streaming.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[<code class="xref py py-data docutils literal notranslate"><span class="pre">Any</span></code>], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span></p>
+<dd class="field-even"><p><span class="sphinx_autodoc_typehints-type"><code class="xref py py-data docutils literal notranslate"><span class="pre">Callable</span></code>[[], <code class="xref py py-obj docutils literal notranslate"><span class="pre">None</span></code>]</span></p>
 </dd>
 <dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><p>A callable that can be used to stop the streaming.</p>
@@ -514,20 +483,20 @@ at the given frequency.</p>
                   
 <div class="prev-next-area">
     <a class="left-prev"
-       href="usb.html"
+       href="ubx.html"
        title="previous page">
       <i class="fa-solid fa-angle-left"></i>
       <div class="prev-next-info">
         <p class="prev-next-subtitle">previous</p>
-        <p class="prev-next-title">USB Hub</p>
+        <p class="prev-next-title">UBX</p>
       </div>
     </a>
     <a class="right-next"
-       href="ubx.html"
+       href="../board-module.html"
        title="next page">
       <div class="prev-next-info">
         <p class="prev-next-subtitle">next</p>
-        <p class="prev-next-title">UBX</p>
+        <p class="prev-next-title">Board Hardware Module</p>
       </div>
       <i class="fa-solid fa-angle-right"></i>
     </a>
@@ -549,12 +518,10 @@ at the given frequency.</p>
   <nav class="bd-toc-nav page-toc">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#basic-usage">Basic Usage</a></li>
-<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.gnss.ublox">Class Reference</a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox"><code class="docutils literal notranslate"><span class="pre">Ublox</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.autobaud"><code class="docutils literal notranslate"><span class="pre">Ublox.autobaud()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.config"><code class="docutils literal notranslate"><span class="pre">Ublox.config()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.halt"><code class="docutils literal notranslate"><span class="pre">Ublox.halt()</span></code></a></li>
-<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.ublox.Ublox.stream"><code class="docutils literal notranslate"><span class="pre">Ublox.stream()</span></code></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#module-sdk.modules.gnss.unicore">Class Reference</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore"><code class="docutils literal notranslate"><span class="pre">Unicore</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore.halt"><code class="docutils literal notranslate"><span class="pre">Unicore.halt()</span></code></a></li>
+<li class="toc-h4 nav-item toc-entry"><a class="reference internal nav-link" href="#sdk.modules.gnss.unicore.Unicore.stream"><code class="docutils literal notranslate"><span class="pre">Unicore.stream()</span></code></a></li>
 </ul>
 </li>
 </ul>
